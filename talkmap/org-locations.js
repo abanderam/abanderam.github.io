@@ -1,22 +1,52 @@
 var addressPoints = [
   [
-    "Talk 1 on Relevant Topic in Your Field<br />UC San Francisco, Department of Testing; San Francisco, CA, USA",
-    37.7879363,
-    -122.4075201
+    "Dynamic Days Europe 2022<br />University of Aberdeen; Aberdeen, Scotland",
+    57.1482429,
+    -2.0928095
   ],
   [
-    "Conference Proceeding talk 3 on Relevant Topic in Your Field<br />Testing Institute of America 2014 Annual Conference; Los Angeles, CA, USA",
-    34.0536909,
-    -118.242766
+    "Tudela Num\u00e9rica<br />Universidad de Pamplona; Tudela, Spain",
+    42.063972,
+    -1.6053391
   ],
   [
-    "Talk 2 on Relevant Topic in Your Field<br />London School of Testing; London, UK",
-    51.5074456,
-    -0.1277653
+    "XXVIII CEDYA / XVIII CMA 2024<br />Universidad del Pais Vasco; Bilbao, Spain",
+    43.2630018,
+    -2.9350039
   ],
   [
-    "Tutorial 1 on Relevant Topic in Your Field<br />UC-Berkeley Institute for Testing Science; Berkeley, CA, USA",
-    37.8708393,
-    -122.272863
+    "VII Congreso de J\u00f3venes Investigadores de la RSME<br />Universidad del Pa\u00eds Vasco; Bilbao, Spain",
+    43.2630018,
+    -2.9350039
+  ],
+  [
+    "4th BYMAT Conference<br />Universitat de Val\u00e8ncia and Universitat Polit\u00e8cnica de Val\u00e8ncia; Valencia, Spain",
+    39.4697065,
+    -0.3763353
+  ],
+  [
+    "ECM 2024<br />Universidad de Sevilla; Sevilla, Spain",
+    37.3886303,
+    -5.9953403
+  ],
+  [
+    "X Jornadas FIDOP<br />Universidad de Sevilla; Sevilla, Spain",
+    37.3886303,
+    -5.9953403
+  ],
+  [
+    "Congreso Bienal de la RSME 2024<br />Universidad de Pamplona; Pamplona, Spain",
+    42.8181992,
+    -1.6440089
+  ],
+  [
+    "IX Jornadas FIDOP<br />Universidad de Sevilla; Sevilla, Spain",
+    37.3886303,
+    -5.9953403
+  ],
+  [
+    "INNOVARUS'23<br />Universidad de Sevilla; Sevilla, Spain",
+    37.3886303,
+    -5.9953403
   ]
 ];
