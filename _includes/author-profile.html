@@ -5,13 +5,17 @@
 {% endif %}
 
 <div itemscope itemtype="http://schema.org/Person">
-
   <div class="author__avatar">
-    {% if author.avatar contains "://" %}
-    	<img src="{{ author.avatar }}" alt="{{ author.name }}"  fetchpriority="high" />
-    {% else %}
-    	<img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="author__avatar" alt="{{ author.name }}"  fetchpriority="high" />
-    {% endif %}
+    <div style="width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 50%;">
+      {% if author.avatar contains "://" %}
+        <img src="{{ author.avatar }}" alt="{{ author.name }}" fetchpriority="high" 
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+      {% else %}
+        <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" 
+            class="author__avatar" alt="{{ author.name }}" fetchpriority="high"
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+      {% endif %}
+    </div>
   </div>
 
   <div class="author__content">
