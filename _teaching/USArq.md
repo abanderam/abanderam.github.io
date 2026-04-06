@@ -3,7 +3,7 @@ title: "Grado en Fundamentos de la Arquitectura - Universidad de Sevilla"
 collection: teaching
 type: "Grado en Fundamentos de la Arquitectura"
 permalink: /teaching/USGradoArq
-date: 2026-06-01
+date: 2026-03-01
 venue: "Universidad de Sevilla"
 location: "Sevilla, España"
 ---

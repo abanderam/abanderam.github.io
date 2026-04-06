@@ -9,7 +9,7 @@ location: "Dos Hermanas, España"
 ---
 
 Matemáticas Aplicadas a la Gestión Empresarial (2024/25-2025/26) [12 ECTS]<br>
-Análisis de Datos I [in English] (2024/25) [12 ECTS]
+Análisis de Datos I [English] (2024/25) [12 ECTS]
 
 Matemáticas Aplicadas a la Gestión Empresarial
 =====

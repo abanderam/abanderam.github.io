@@ -1,5 +1,25 @@
 var addressPoints = [
   [
+    "INNOVARUS'23<br />Universidad de Sevilla; Sevilla, Spain",
+    37.3886303,
+    -5.9953403
+  ],
+  [
+    "X Jornadas FIDOP<br />Universidad de Sevilla; Sevilla, Spain",
+    37.3886303,
+    -5.9953403
+  ],
+  [
+    "IX Jornadas FIDOP<br />Universidad de Sevilla; Sevilla, Spain",
+    37.3886303,
+    -5.9953403
+  ],
+  [
+    "XXVIII CEDYA / XVIII CMA 2024<br />Universidad del Pais Vasco; Bilbao, Spain",
+    43.2630018,
+    -2.9350039
+  ],
+  [
     "Dynamic Days Europe 2022<br />University of Aberdeen; Aberdeen, Scotland",
     57.1482429,
     -2.0928095
@@ -10,9 +30,9 @@ var addressPoints = [
     -1.6053391
   ],
   [
-    "XXVIII CEDYA / XVIII CMA 2024<br />Universidad del Pais Vasco; Bilbao, Spain",
-    43.2630018,
-    -2.9350039
+    "ECM 2024<br />Universidad de Sevilla; Sevilla, Spain",
+    37.3886303,
+    -5.9953403
   ],
   [
     "VII Congreso de J\u00f3venes Investigadores de la RSME<br />Universidad del Pa\u00eds Vasco; Bilbao, Spain",
@@ -25,28 +45,8 @@ var addressPoints = [
     -0.3763353
   ],
   [
-    "ECM 2024<br />Universidad de Sevilla; Sevilla, Spain",
-    37.3886303,
-    -5.9953403
-  ],
-  [
-    "X Jornadas FIDOP<br />Universidad de Sevilla; Sevilla, Spain",
-    37.3886303,
-    -5.9953403
-  ],
-  [
     "Congreso Bienal de la RSME 2024<br />Universidad de Pamplona; Pamplona, Spain",
     42.8181992,
     -1.6440089
-  ],
-  [
-    "IX Jornadas FIDOP<br />Universidad de Sevilla; Sevilla, Spain",
-    37.3886303,
-    -5.9953403
-  ],
-  [
-    "INNOVARUS'23<br />Universidad de Sevilla; Sevilla, Spain",
-    37.3886303,
-    -5.9953403
   ]
 ];

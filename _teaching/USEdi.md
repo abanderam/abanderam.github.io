@@ -8,10 +8,10 @@ venue: "Universidad de Sevilla"
 location: "Sevilla, España"
 ---
 
-Matemática Aplicada a la Edificación 2 (2025/26) [ ECTS]
+Matemática Aplicada a la Edificación II (2025/26)
 
 
-Matemática Aplicada a la Edificación
+Matemática Aplicada a la Edificación II
 ======
 Asignatura del segundo cuatrimestre del primer curso del Grado en Edificación.
 

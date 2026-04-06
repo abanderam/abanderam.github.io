@@ -5,6 +5,12 @@
 # with geopy/Nominatim, and uses the getorg library to output data, HTML, and
 # Javascript for a standalone cluster map. This is functionally the same as the
 # #talkmap Jupyter notebook.
+import ssl
+import certifi
+
+# Manually point to the certifi certificate bundle
+ssl._create_default_https_context = ssl._create_unverified_context
+
 import frontmatter
 import glob
 import getorg
