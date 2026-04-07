@@ -5,7 +5,7 @@ permalink: /publication/2024_BCCDG_Kolmogorov
 excerpt: ''
 date: 2024-02-01
 venue: 'Computer Methods in Applied Mechanics and Engineering'
-paperurl: 'http://abanderam.github.io/files/BCCDG2024_Kolmogorov_Published.pdf'
+paperurl: 'https://www.sciencedirect.com/science/article/pii/S004578252300806X'
 citation: 'Bandera, A., Caravaca García, C., Chacón Rebollo, T., Delgado Ávila, E., & Gómez-Mármol, M. (2024). &quot;Reduced Basis modelling of turbulence with well-developed inertial range. &quot; <i>Computer Methods in Applied Mechanics and Engineering</i>, 419, 116683.'
 ---
 

@@ -5,7 +5,7 @@ permalink: /publication/2022_BFGV_MTNM
 excerpt: ''
 date: 2022-06-09
 venue: 'Mathematical Modelling of Natural Phenomena'
-paperurl: 'http://abanderam.github.io/files/BFGV2022_ICC_Published.pdf'
+paperurl: 'https://www.mmnp-journal.org/articles/mmnp/abs/2022/01/mmnp210274/mmnp210274.html'
 citation: 'Bandera, A., Fernández-García, S., Gómez-Mármol, M., & Vidal, A. (2022). &quot;A multiple timescale network model of intracellular calcium concentrations in coupled neurons: Insights from ROM simulations.&quot; <i>Mathematical Modelling of Natural Phenomena</i>, 17, 11.'
 ---
 

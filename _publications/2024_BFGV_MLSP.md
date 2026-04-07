@@ -5,7 +5,7 @@ permalink: /publication/2026_BFGV_MLSP
 excerpt: ''
 date: 2026-03-01
 venue: 'Physica D: Nonlinear Phenomena'
-paperurl: 'http://abanderam.github.io/files/BFGV2026_MLSP_Published.pdf'
+paperurl: 'https://www.sciencedirect.com/science/article/pii/S0167278925005585'
 citation: 'Bandera, A., Fernández-García, S., Gómez-Mármol, M., & Vidal, A. (2026). Machine learning techniques to identify synchronization patterns in multiple timescale dynamical systems networks. Physica D: Nonlinear Phenomena, 135082.'
 ---
 

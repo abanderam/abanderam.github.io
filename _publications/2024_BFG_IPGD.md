@@ -5,7 +5,7 @@ permalink: /publication/2024_BFG_IPGD
 excerpt: ''
 date: 2024-06-01
 venue: 'Applied Mathematics and Computation'
-paperurl: 'http://abanderam.github.io/files/BFG2024_IPGD_Published.pdf'
+paperurl: 'https://www.sciencedirect.com/science/article/pii/S0096300324000511'
 citation: 'Bandera, A., Fernández-García, S., & Gómez-Mármol, M. (2024). &quot;On the computation of intrinsic Proper Generalized Decomposition modes of parametric symmetric elliptic problems on Grassmann manifolds.&quot; <i>Applied Mathematics and Computation</i>, 470, 128579.'
 ---
 
