@@ -293,16 +293,6 @@ defaults:
       layout: talk
       author_profile: true
       share: true
-  # _teaching-resources
-  - scope:
-      path: ""
-      type: teaching-resources
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-
 
 # Sass/SCSS
 sass:
