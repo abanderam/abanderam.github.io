@@ -8,7 +8,7 @@ venue: "Universidad de Sevilla"
 location: "Sevilla, España"
 ---
 
-
+Resumen
 
 
 Matemática Aplicada a la Edificación II
