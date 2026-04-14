@@ -5,8 +5,6 @@ permalink: /teaching-resources/
 author_profile: true
 ---
 
-## Recursos docentes
-
 Esta página contiene recursos y materiales relacionados con la docencia. En ella encontrarás mi horario de tutorías, ejercicios resueltos, vídeos explicativos, entre otros.
 
 ### Tutorías
@@ -23,8 +21,6 @@ También puedes contactar conmigo para algunas dudas concretas mediante Teams e 
 
 Enlaces a los materiales de las distintas asignaturas.
 
-
-
-{% for post in site.teaching reversed %}
+{% for post in site.teaching-resources reversed %}
   {% include archive-single.html %}
 {% endfor %}
