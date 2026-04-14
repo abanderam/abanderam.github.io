@@ -23,7 +23,7 @@ repository               : "abanderam/abanderam.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "FotoDiscurso.png"
+  avatar           : "FotoDiscurso_Best.png"
   name             : "Alejandro Bandera"
   pronouns         : # example: "she/her"  
   bio              : "Lecturer"
