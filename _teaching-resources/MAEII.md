@@ -3,8 +3,6 @@ title: "Matemática Aplicada a la Edificación II"
 collection: teaching-resources
 type: "Grado en Edificación"
 permalink: /teaching-resources/MAEII
-date: 2026-06-01
-venue: "Universidad de Sevilla"
 location: "Sevilla, España"
 ---
 
