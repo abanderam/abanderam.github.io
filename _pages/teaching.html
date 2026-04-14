@@ -11,6 +11,6 @@ Para las tutorías y otros recursos docentes, visita la sección de <a href="/te
 
 
 
-{% for post in site.teaching %}
+{% for post in site.teaching reversed%}
   {% include archive-single.html %}
 {% endfor %}

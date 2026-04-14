@@ -24,6 +24,6 @@ Asimismo, para consultas puntuales o dudas concretas, puedes contactarme vía **
 
 A continuación, encontrarás los enlaces a los materiales organizados por asignatura:
 
-{% for post in site.teaching-resources reversed %}
+{% for post in site.teaching-resources %}
   {% include archive-single.html %}
 {% endfor %}
