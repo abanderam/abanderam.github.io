@@ -7,6 +7,8 @@ author_profile: true
 
 Esta sección reúne los recursos y materiales de apoyo para la docencia. Aquí podrás consultar mi **horario de tutorías**, acceder a **ejercicios y exámenes resueltos** y ver **vídeos explicativos**, entre otros contenidos de interés.
 
+---
+
 ## Tutorías
 
 Durante el segundo cuatrimestre del curso 2025/26, las tutorías presenciales se realizarán en el siguiente horario:

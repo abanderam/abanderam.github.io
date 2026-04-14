@@ -8,7 +8,6 @@ location: "Sevilla, España"
 
 Asignatura del primer cuatrimestre del primer curso del Grado en Edificación.
 
-
 - **Bloque 1. Técnicas y métodos probabilísticos. Análisis estadístico.**
   - Tema 1: Estadística.
 
