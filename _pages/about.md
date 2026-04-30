@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About me"
+title: "Sobre mí"
 author_profile: true
 layout: single
 classes: wide
@@ -10,6 +10,18 @@ redirect_from:
 ---
 
 <div style="text-align: justify">
+
+<p> Actualmente soy Profesor Ayudante Doctor en el departamento de Matemática Aplicada I de la Universidad de Sevilla. Anteriormente he sido contratado FPI en el departamento de Ecuaciones Diferenciales y Análisis Numérico de la Universidad de Sevilla y Profesor Ayudante Doctor en el departamento de Métodos Cuantitativos de la Universidad Loyola Andalucía. </p>
+
+<p> Mi investigación se centra en el desarrollo de técnicas de Modelado de Orden Reducido (ROM, por sus siglas en inglés) para sistemas de ecuaciones diferenciales, tanto ordinarias como ecuaciones en derivadas parciales. Mis campos de investigación incluyen: Proper Orthogonal Decomposition (POD), Reduced Basis (RB) y Proper Generalized Decomposition (PGD). En el ámbito de las aplicaciones destacan: los sitemas dinámicos lento-rápido, los modelos de turbulencia y EDPs elípticas. </p>
+
+<p> Tengo un doctorado en Matemáticas. Soy investigador del grupo M2S2M (FQM-120) de la Universidad de Sevilla y anteriormente dentro del grupo MICA de la Universidad Loyola Andalucía. </p>
+
+<p> He realizado estancias de investigación en Valorem/University of Bordeaux, Francia (con S. Brillet y M. Azaïez, 3 meses), y en la Univesity of Evry, Francia (con S. Menozzi y A. Vidal, 2 meses).</p>
+
+<p> Me gustan los idiomas y hablo Español, Inglés, Alemán y Francés. </p>
+
+---
 
 <p>I am a Lecturer (Profesor Ayudante Doctor) in Universidad de Sevilla. Previously, I was a postdoctoral researcher in the University of Seville (Spain) and a Lecturer in Universidad Loyola Andalucía. </p>
 
