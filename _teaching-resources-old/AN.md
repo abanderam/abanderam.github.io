@@ -2,7 +2,7 @@
 title: "Análisis Numérico"
 collection: teaching-resources-old
 type: "Grado en Matemática Aplicada - Universidad Loyola Andalucía"
-permalink: /teaching-resources-old/AN
+permalink: /teaching-resources/AN
 location: "Sevilla, España"
 ---
 

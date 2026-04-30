@@ -30,6 +30,7 @@ A continuación, encontrarás los enlaces a los materiales organizados por asign
   {% include archive-single.html %}
 {% endfor %}
 
+---
 
 ## Otros materiales docentes
 
