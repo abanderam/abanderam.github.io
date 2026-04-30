@@ -1,8 +1,8 @@
 ---
 title: "Análisis Numérico"
-collection: teaching-resources
+collection: teaching-resources-old
 type: "Grado en Matemática Aplicada - Universidad Loyola Andalucía"
-permalink: /teaching-resources/MAEI
+permalink: /teaching-resources/AN
 location: "Sevilla, España"
 ---
 

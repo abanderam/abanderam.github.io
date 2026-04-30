@@ -29,3 +29,12 @@ A continuación, encontrarás los enlaces a los materiales organizados por asign
 {% for post in site.teaching-resources %}
   {% include archive-single.html %}
 {% endfor %}
+
+
+## Otros materiales docentes
+
+Colección de materiales docentes de antiguas asignaturas:
+
+{% for post in site.teaching-resources-old %}
+  {% include archive-single.html %}
+{% endfor %}
