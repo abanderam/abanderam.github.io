@@ -15,7 +15,7 @@ redirect_from:
 
 <p> Mi investigación se centra en el desarrollo de técnicas de Modelado de Orden Reducido (ROM, por sus siglas en inglés) para sistemas de ecuaciones diferenciales, tanto ordinarias como ecuaciones en derivadas parciales. Mis campos de investigación incluyen: Proper Orthogonal Decomposition (POD), Reduced Basis (RB) y Proper Generalized Decomposition (PGD). En el ámbito de las aplicaciones destacan: los sitemas dinámicos lento-rápido, los modelos de turbulencia y EDPs elípticas. </p>
 
-<p> Tengo un doctorado en Matemáticas. Soy investigador del grupo M2S2M (FQM-120) de la Universidad de Sevilla y anteriormente dentro del grupo MICA de la Universidad Loyola Andalucía. </p>
+<p> Tengo un doctorado en Matemáticas, mi tesis se titula: <em>Some applications of Reduced Order Modelling to slow-fast dynamical systems, turbulence models and elliptic PDEs</em>. Soy investigador del grupo M2S2M (FQM-120) de la Universidad de Sevilla y anteriormente dentro del grupo MICA de la Universidad Loyola Andalucía. </p>
 
 <p> He realizado estancias de investigación en Valorem/University of Bordeaux, Francia (con S. Brillet y M. Azaïez, 3 meses), y en la Univesity of Evry, Francia (con S. Menozzi y A. Vidal, 2 meses).</p>
 
