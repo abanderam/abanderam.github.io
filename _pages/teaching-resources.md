@@ -13,8 +13,8 @@ Esta sección reúne los recursos y materiales de apoyo para la docencia. Aquí 
 
 Durante el segundo cuatrimestre del curso 2025/26, las tutorías presenciales se realizarán en el siguiente horario:
 
-* **Miércoles:** 10:30 a 13:30 h
-* **Jueves:** 15:00 a 18:00 h
+* **Lunes:** 10:30 a 12:30 h y de 15:00 a 17:30 h.
+* **Miércoles:** 12:30 a 14:00 h.
 
 Para garantizar la atención y evitar esperas, es necesario **concertar cita previa** a través de Microsoft Teams.
 
