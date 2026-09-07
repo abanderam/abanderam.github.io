@@ -11,7 +11,7 @@ Esta sección reúne los recursos y materiales de apoyo para la docencia. Aquí 
 
 ## Tutorías
 
-Durante el segundo cuatrimestre del curso 2025/26, las tutorías presenciales se realizarán en el siguiente horario:
+Durante el curso 2026/27, las tutorías presenciales se realizarán en el siguiente horario:
 
 * **Lunes:** 10:30 a 12:30 h y de 15:00 a 17:30 h.
 * **Miércoles:** 12:30 a 14:00 h.
