@@ -16,3 +16,5 @@ citation: 'Bandera, A., Fernández-García, S., Gómez-Mármol, M., & Vidal, A. 
 
 <p>© 2026 The Author(s). Published by Elsevier B.V.</p>
 </div>
+
+<p>DOI: <a href="https://doi.org/10.1016/j.physd.2025.135082">10.1016/j.physd.2025.135082</a> · Open access, licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>.</p>

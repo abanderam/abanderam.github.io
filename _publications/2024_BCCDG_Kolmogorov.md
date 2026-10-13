@@ -16,3 +16,5 @@ citation: 'Bandera, A., Caravaca García, C., Chacón Rebollo, T., Delgado Ávil
 
 <p>© 2023 The Author(s). Published by Elsevier B.V.</p>
 </div>
+
+<p>DOI: <a href="https://doi.org/10.1016/j.cma.2023.116683">10.1016/j.cma.2023.116683</a> · Open access, licencia <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
