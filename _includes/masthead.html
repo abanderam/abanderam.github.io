@@ -1,24 +1,66 @@
 {% include base_path %}
+{% comment %}
+  Idioma de la página: page.lang (es|en). Las páginas sin lang se tratan como es.
+  Selector de idioma: enlaza a page.translation_url si existe; si no, a la portada del otro idioma.
+{% endcomment %}
+{% assign nav_lang = page.lang | default: 'es' %}
+{% if nav_lang == 'en' %}
+  {% assign nav_home = '/en/' %}
+  {% assign sw_lang = 'es' %}
+  {% assign sw_label = 'ES' %}
+  {% assign sw_target = page.translation_url | default: '/' %}
+  {% if page.translation_url %}
+    {% assign sw_aria = 'Leer esta página en español' %}
+  {% else %}
+    {% assign sw_aria = 'Ir a la versión en español del sitio' %}
+  {% endif %}
+{% else %}
+  {% assign nav_home = '/' %}
+  {% assign sw_lang = 'en' %}
+  {% assign sw_label = 'EN' %}
+  {% assign sw_target = page.translation_url | default: '/en/' %}
+  {% if page.translation_url %}
+    {% assign sw_aria = 'Read this page in English' %}
+  {% else %}
+    {% assign sw_aria = 'Go to the English version of the site' %}
+  {% endif %}
+{% endif %}
+{% if sw_target contains 'http' %}
+  {% assign sw_href = sw_target %}
+{% else %}
+  {% assign sw_href = sw_target | prepend: base_path %}
+{% endif %}
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         <button><span class="navicon"></span></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist {% if page.url == '/' or page.url == '/index.html' %}selected{% endif %}">
-            <a href="{{ base_path }}/">{{ site.title }}</a>
+          <li class="masthead__menu-item masthead__menu-item--lg persist {% if page.url == nav_home or page.url == '/index.html' %}selected{% endif %}">
+            <a href="{{ base_path }}{{ nav_home }}">{{ site.title }}</a>
           </li>
           {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
+            {% if nav_lang == 'en' %}
+              {% assign link_title = link.title_en | default: link.title %}
+              {% assign link_url = link.url_en | default: link.url %}
+            {% else %}
+              {% assign link_title = link.title %}
+              {% assign link_url = link.url %}
+            {% endif %}
+            {% if link_url contains 'http' %}
               {% assign domain = '' %}
             {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item {% if page.url contains link.url and link.url != '/' %}selected{% endif %}">
-              <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
+            <li class="masthead__menu-item {% if page.url contains link_url and link_url != '/' %}selected{% endif %}">
+              <a href="{{ domain }}{{ link_url }}">{{ link_title }}</a>
             </li>
           {% endfor %}
-          <li id="theme-toggle" class="masthead__menu-item persist tail">
+          {% comment %} Selector de idioma: único elemento "persist tail" (lo usa jquery.greedy-navigation.js); el toggle de tema va después como "persist". {% endcomment %}
+          <li id="lang-switch" class="masthead__menu-item persist tail">
+            <a href="{{ sw_href }}" lang="{{ sw_lang }}" hreflang="{{ sw_lang }}" aria-label="{{ sw_aria }}" title="{{ sw_aria }}">{{ sw_label }}</a>
+          </li>
+          <li id="theme-toggle" class="masthead__menu-item persist">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
         </ul>

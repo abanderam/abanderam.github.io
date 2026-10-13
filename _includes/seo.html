@@ -48,25 +48,47 @@
   <link rel="canonical" href="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
 {% endif %}
 
+{% comment %} hreflang: solo para páginas con translation_url. x-default apunta a la versión en español. {% endcomment %}
+{% if seo_url and page.translation_url %}
+  {% assign hl_self = page.url | replace: "/index.html", "/" | prepend: seo_url %}
+  {% if page.translation_url contains "://" %}
+    {% assign hl_other = page.translation_url %}
+  {% else %}
+    {% assign hl_other = page.translation_url | prepend: seo_url %}
+  {% endif %}
+  {% assign hl_self_lang = page.lang | default: "es" | slice: 0, 2 %}
+  {% if hl_self_lang == "en" %}
+    {% assign hl_es = hl_other %}{% assign hl_en = hl_self %}
+  {% else %}
+    {% assign hl_es = hl_self %}{% assign hl_en = hl_other %}
+  {% endif %}
+  <link rel="alternate" hreflang="es" href="{{ hl_es }}">
+  <link rel="alternate" hreflang="en" href="{{ hl_en }}">
+  <link rel="alternate" hreflang="x-default" href="{{ hl_es }}">
+{% endif %}
+
+{% comment %} Imagen social: header.image > header.overlay_image > site.og_image (URL absoluta) {% endcomment %}
+{% assign seo_image = page.header.image | default: page.header.overlay_image | default: site.og_image %}
+{% if seo_image %}
+  {% if seo_image contains "://" %}
+    {% assign seo_image_url = seo_image %}
+  {% else %}
+    {% assign seo_image_url = seo_image | prepend: "/images/" | prepend: base_path %}
+  {% endif %}
+{% endif %}
+
 {% if site.twitter.username %}
   <meta name="twitter:site" content="@{{ site.twitter.username | replace: "@", "" }}">
-  <meta name="twitter:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
-  <meta name="twitter:description" content="{{ seo_description }}">
-  <meta name="twitter:url" content="{{ canonical_url }}">
-
-  {% if page.header.image %}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="{% if page.header.image contains "://" %}{{ page.header.image }}{% else %}{{ page.header.image | prepend: "/images/" | prepend: base_path }}{% endif %}">
-  {% else %}
-    <meta name="twitter:card" content="summary">
-    {% if site.og_image %}
-      <meta name="twitter:image" content="{{ site.og_image | prepend: "/images/" | prepend: base_path }}">
-    {% endif %}
-  {% endif %}
-
   {% if seo_author_twitter %}
     <meta name="twitter:creator" content="@{{ seo_author_twitter }}">
   {% endif %}
+{% endif %}
+<meta name="twitter:card" content="{% if seo_image_url %}summary_large_image{% else %}summary{% endif %}">
+<meta name="twitter:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
+<meta name="twitter:description" content="{{ seo_description }}">
+{% if canonical_url %}<meta name="twitter:url" content="{{ canonical_url }}">{% endif %}
+{% if seo_image_url %}
+  <meta name="twitter:image" content="{{ seo_image_url }}">
 {% endif %}
 
 {% if site.facebook %}
@@ -86,17 +108,34 @@
   <link rel="next" href="{{ paginator.next_page_path | prepend: seo_url }}">
 {% endif %}
 
-{% if site.social %}
-  <script type="application/ld+json">
-    {
-      "@context" : "http://schema.org",
-      "@type" : "{% if site.social.type %}{{ site.social.type }}{% else %}Person{% endif %}",
-      "name" : "{{ site.social.name | default: site.name }}",
-      "url" : {{ seo_url | jsonify }},
-      "sameAs" : {{ site.social.links | jsonify }}
-    }
-  </script>
+{% comment %} JSON-LD (schema.org) con sameAs construido a partir de site.author {% endcomment %}
+{% assign same_as = "" | split: "" %}
+{% for link in site.social.links %}
+  {% if link and link != "" %}{% assign same_as = same_as | push: link %}{% endif %}
+{% endfor %}
+{% if site.author.orcid and site.author.orcid != "" %}
+  {% assign orcid_url = site.author.orcid | replace: "http://", "https://" %}
+  {% assign same_as = same_as | push: orcid_url %}
 {% endif %}
+{% if site.author.googlescholar and site.author.googlescholar != "" %}
+  {% assign same_as = same_as | push: site.author.googlescholar %}
+{% endif %}
+{% if site.author.github and site.author.github != "" %}
+  {% capture github_url %}https://github.com/{{ site.author.github }}{% endcapture %}
+  {% assign same_as = same_as | push: github_url %}
+{% endif %}
+<script type="application/ld+json">
+  {
+    "@context" : "https://schema.org",
+    "@type" : "{% if site.social.type %}{{ site.social.type }}{% else %}Person{% endif %}",
+    "name" : {{ site.social.name | default: site.author.name | default: site.name | jsonify }},
+    "url" : {{ seo_url | jsonify }}{% if site.author.bio %},
+    "jobTitle" : {{ site.author.bio | jsonify }}{% endif %}{% if site.author.employer %},
+    "affiliation" : { "@type" : "CollegeOrUniversity", "name" : {{ site.author.employer | jsonify }} }{% endif %}{% if seo_image_url %},
+    "image" : {{ seo_image_url | jsonify }}{% endif %}{% if same_as.size > 0 %},
+    "sameAs" : {{ same_as | jsonify }}{% endif %}
+  }
+</script>
 
 {% if site.google_site_verification %}
   <meta name="google-site-verification" content="{{ site.google_site_verification }}" />
@@ -113,35 +152,27 @@
 <!-- end SEO -->
 
 <!-- Open Graph protocol data (https://ogp.me/), used by social media -->
-<meta property="og:locale" content="{{ site.locale | default: "en" }}">
-<meta property="og:site_name" content="{{ site.title }}"> 
-<meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
-{% if page.date %}
-  <meta property="og:type" content="article">
+{% assign seo_lang = page.lang | default: site.locale | default: "en" %}
+{% assign seo_og_locale = seo_lang | replace: "-", "_" %}
+{% if seo_og_locale.size == 2 %}
+  {% if seo_og_locale == "en" %}{% assign seo_og_locale = "en_US" %}{% else %}{% capture seo_og_locale %}{{ seo_og_locale }}_{{ seo_og_locale | upcase }}{% endcapture %}{% endif %}
 {% endif %}
-{% if page.excerpt %}
-  <meta property="og:description" name="description" content="{{ seo_description }}">
-{% elsif site.og_description %}
-  <meta property="og:description" name="description" content="{{ site.og_description }}">
+<meta property="og:locale" content="{{ seo_og_locale }}">
+{% if page.translation_url %}
+  {% if seo_lang contains "en" %}{% assign seo_og_alt = "es_ES" %}{% else %}{% assign seo_og_alt = "en_US" %}{% endif %}
+  <meta property="og:locale:alternate" content="{{ seo_og_alt }}">
+{% endif %}
+<meta property="og:site_name" content="{{ site.title }}"> 
+<meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
+{% if seo_description %}
+  <meta property="og:description" content="{{ seo_description }}">
 {% endif %}
 {% if seo_url %}
   <meta property="og:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
 {% endif %}
 
-{% if site.og_image %}
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "url": {{ seo_url | jsonify }},
-      "logo": {{ site.og_image | prepend: "/images/" | prepend: base_path | jsonify }}
-    }
-  </script>
-{% endif %}
-
-{% if page.header.image %}
-  <meta property="og:image" content="{% if page.header.image contains "://" %}{{ page.header.image }}{% else %}{{ page.header.image | prepend: "/images/" | prepend: base_path }}{% endif %}">
-{% elsif page.header.overlay_image %}
-  <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+{% if seo_image_url %}
+  <meta property="og:image" content="{{ seo_image_url }}">
 {% endif %}
 <!-- end Open Graph protocol -->
