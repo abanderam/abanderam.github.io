@@ -1,6 +1,8 @@
 ---
 layout: archive
 title: "CV"
+lang: es
+translation_url: /cv_eng/
 permalink: /cv/
 author_profile: true
 redirect_from:

@@ -48,6 +48,25 @@
   <link rel="canonical" href="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
 {% endif %}
 
+{% comment %} hreflang: solo para páginas con translation_url. x-default apunta a la versión en español. {% endcomment %}
+{% if seo_url and page.translation_url %}
+  {% assign hl_self = page.url | replace: "/index.html", "/" | prepend: seo_url %}
+  {% if page.translation_url contains "://" %}
+    {% assign hl_other = page.translation_url %}
+  {% else %}
+    {% assign hl_other = page.translation_url | prepend: seo_url %}
+  {% endif %}
+  {% assign hl_self_lang = page.lang | default: "es" | slice: 0, 2 %}
+  {% if hl_self_lang == "en" %}
+    {% assign hl_es = hl_other %}{% assign hl_en = hl_self %}
+  {% else %}
+    {% assign hl_es = hl_self %}{% assign hl_en = hl_other %}
+  {% endif %}
+  <link rel="alternate" hreflang="es" href="{{ hl_es }}">
+  <link rel="alternate" hreflang="en" href="{{ hl_en }}">
+  <link rel="alternate" hreflang="x-default" href="{{ hl_es }}">
+{% endif %}
+
 {% comment %} Imagen social: header.image > header.overlay_image > site.og_image (URL absoluta) {% endcomment %}
 {% assign seo_image = page.header.image | default: page.header.overlay_image | default: site.og_image %}
 {% if seo_image %}
@@ -139,6 +158,10 @@
   {% if seo_og_locale == "en" %}{% assign seo_og_locale = "en_US" %}{% else %}{% capture seo_og_locale %}{{ seo_og_locale }}_{{ seo_og_locale | upcase }}{% endcapture %}{% endif %}
 {% endif %}
 <meta property="og:locale" content="{{ seo_og_locale }}">
+{% if page.translation_url %}
+  {% if seo_lang contains "en" %}{% assign seo_og_alt = "es_ES" %}{% else %}{% assign seo_og_alt = "en_US" %}{% endif %}
+  <meta property="og:locale:alternate" content="{{ seo_og_alt }}">
+{% endif %}
 <meta property="og:site_name" content="{{ site.title }}"> 
 <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
 <meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">

@@ -1,13 +1,25 @@
-# main links links
+# Menú principal. Los títulos dependen del idioma de la página (page.lang, es por defecto):
+#   title    -> español
+#   title_en -> inglés
+# Las URLs son compartidas entre idiomas salvo que se indique url_en (enlace específico para páginas en inglés).
 main:
-  - title: "Publications"
+  - title: "Publicaciones"
+    title_en: "Publications"
     url: /publications/
 
-  - title: "Teaching"
-    url: /teaching/    
-    
-  - title: "Talks"
-    url: /talks/    
-    
+  - title: "Docencia"
+    title_en: "Teaching"
+    url: /teaching/
+
+  - title: "Charlas"
+    title_en: "Talks"
+    url: /talks/
+
   - title: "CV"
+    title_en: "CV"
     url: /cv/
+    url_en: /cv_eng/
+
+  - title: "Recursos docentes"
+    title_en: "Teaching resources"
+    url: /teaching-resources/
