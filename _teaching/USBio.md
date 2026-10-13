@@ -6,9 +6,10 @@ permalink: /teaching/USGradoBio
 date: 2024-01-01
 venue: "Universidad de Sevilla"
 location: "Sevilla, España"
+group: us_anterior
 ---
 
-Informática Aplicada a la Biología (2020/21-2021/22-2022/23-2023/24) [14.3 ECTS]
+Informática Aplicada a la Biología (2020/21-2021/22-2022/23-2023/24) ·&nbsp;14,3&nbsp;ECTS
 
 Informática Aplicada a la Biología
 ======

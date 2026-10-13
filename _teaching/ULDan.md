@@ -6,9 +6,10 @@ permalink: /teaching/ULGradDan
 date: 2025-01-01
 venue: "Universidad Loyola Andalucía"
 location: "Dos Hermanas, España"
+group: loyola
 ---
 
-Modelos Econométricos I: Regresión (2024/25) [2 ECTS]
+Modelos Econométricos I: Regresión (2024/25) ·&nbsp;2&nbsp;ECTS
 
 Modelos Econométricos I: Regresión
 ======

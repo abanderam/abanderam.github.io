@@ -6,6 +6,7 @@ permalink: /teaching/USGradoEdi
 date: 2026-06-01
 venue: "Universidad de Sevilla"
 location: "Sevilla, España"
+group: us_actual
 ---
 
 Matemática Aplicada a la Edificación I  (2026/27)

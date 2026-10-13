@@ -6,9 +6,10 @@ permalink: /teaching/USGradoArq
 date: 2026-03-01
 venue: "Universidad de Sevilla"
 location: "Sevilla, España"
+group: us_actual
 ---
 
-Fundamentos Matemáticos para la Arquitectura I (2025/26) [1.4 ECTS]
+Fundamentos Matemáticos para la Arquitectura I (2025/26) ·&nbsp;1,4&nbsp;ECTS
 
 
 Fundamentos Matemáticos para la Arquitectura I

@@ -24,7 +24,7 @@ classes: wide
 </nav>
 
 <section class="home-section" id="about">
-  <h2 class="home-section__title">About me</h2>
+  <h2 class="home-section__title">Background</h2>
   <div class="home-prose">
     <p>I am a Lecturer (Profesor Ayudante Doctor) in the Department of Applied Mathematics I at Universidad de Sevilla. Previously, I held an FPI (pre-doctoral) contract in the Department of Differential Equations and Numerical Analysis of the University of Seville (Spain), and was a Lecturer in the Department of Quantitative Methods at Universidad Loyola Andalucía.</p>
     <p>I have a PhD in Mathematics. I have been a researcher at the University of Seville in the research group of Profs. Tomás Chacón Rebollo and Macarena Gómez-Mármol.</p>
@@ -41,15 +41,15 @@ classes: wide
   <div class="home-cards">
     <div class="home-card">
       <h3 class="home-card__title">Proper Orthogonal Decomposition (POD)</h3>
-      <p>One of the Reduced Order Modelling (ROM) techniques at the core of my research.</p>
+      <p>Builds a basis of a few optimal modes from simulations of the full model (snapshots), drastically reducing computational cost.</p>
     </div>
     <div class="home-card">
       <h3 class="home-card__title">Reduced Basis (RB)</h3>
-      <p>A ROM technique for systems of differential equations.</p>
+      <p>Approximates parametrized problems with a basis built from solutions at representative parameter values, separating the costly (offline) stage from the fast (online) one.</p>
     </div>
     <div class="home-card">
       <h3 class="home-card__title">Proper Generalized Decomposition (PGD)</h3>
-      <p>The third ROM technique I work on, alongside POD and RB.</p>
+      <p>Seeks the solution as a sum of products of functions of each variable or parameter, avoiding the curse of dimensionality in parametric problems.</p>
     </div>
     <div class="home-card">
       <h3 class="home-card__title">Applications</h3>

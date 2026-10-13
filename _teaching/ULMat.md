@@ -6,11 +6,12 @@ permalink: /teaching/ULGradMat
 date: 2025-09-01
 venue: "Universidad Loyola Andalucía"
 location: "Dos Hermanas, España"
+group: loyola
 ---
 
-Análisis Numérico (2024/25-2025/26) [9,5 ECTS]<br>
-Cálculo III (2025/26) [6 ECTS]<br>
-Trabajo de Fin de Grado (2025/26) [1 TFG]
+Análisis Numérico (2024/25-2025/26) ·&nbsp;9,5&nbsp;ECTS<br>
+Cálculo III (2025/26) ·&nbsp;6&nbsp;ECTS<br>
+Trabajo de Fin de Grado (2025/26) ·&nbsp;1 trabajo dirigido
 
 Análisis Numérico 
 ======
