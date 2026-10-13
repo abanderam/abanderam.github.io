@@ -20,6 +20,9 @@
 {% endif %}
 
 <div class="page__footer-copyright">
-  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}, {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated {{ "now" | date: '%Y-%m-%d' }}
+  {% if page.lang == 'en' %}
+  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}<span class="sep" aria-hidden="true">&middot;</span>Last updated: {{ site.time | date: '%Y-%m-%d' }}
+  {% else %}
+  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}<span class="sep" aria-hidden="true">&middot;</span>&Uacute;ltima actualizaci&oacute;n: {{ site.time | date: '%d/%m/%Y' }}
+  {% endif %}
 </div>

@@ -1,1 +1,520 @@
-/* base */
+/* ==========================================================================
+   BASE: tokens de diseño, tipografía, masthead, barra lateral y pie
+   Los parciales home/publications/teaching usan estos tokens con fallback.
+   Modo oscuro: html[data-theme="dark"] (lo fija assets/js/_main.js).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens (claro por defecto)
+   -------------------------------------------------------------------------- */
+:root {
+  --ab-accent        : #1f4e8c;   /* azul sobrio; 8.3:1 sobre blanco */
+  --ab-accent-hover  : #143869;
+  --ab-accent-soft   : #e9eff8;   /* fondo tenue para chips, hover, destacados */
+  --ab-on-accent     : #ffffff;   /* texto sobre fondos de acento */
+  --ab-text          : #1f2328;   /* 15:1 sobre blanco */
+  --ab-muted         : #586270;   /* 6:1 sobre blanco, 5.6:1 sobre surface */
+  --ab-border        : #dde2e8;
+  --ab-bg            : #ffffff;
+  --ab-surface       : #f7f8fa;   /* masthead, pie, tarjetas */
+  --ab-radius        : 6px;
+  --ab-font-sans     : system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --ab-font-serif    : Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, "Times New Roman", serif;
+  --ab-measure       : 44rem;     /* ancho cómodo de línea para texto corrido */
+
+  /* Variables --global-* del tema reasignadas a los tokens */
+  --global-base-color                 : var(--ab-accent);
+  --global-bg-color                   : var(--ab-bg);
+  --global-footer-bg-color            : var(--ab-surface);
+  --global-border-color               : var(--ab-border);
+  --global-dark-border-color          : #c8cfd7;
+  --global-code-background-color      : #f4f5f7;
+  --global-code-text-color            : #3a4350;
+  --global-fig-caption-color          : var(--ab-muted);
+  --global-link-color                 : var(--ab-accent);
+  --global-link-color-hover           : var(--ab-accent-hover);
+  --global-link-color-visited         : #5a4a8a;
+  --global-masthead-link-color        : #2b323b;
+  --global-masthead-link-color-hover  : var(--ab-accent);
+  --global-text-color                 : var(--ab-text);
+  --global-text-color-light           : var(--ab-muted);
+  --global-thead-color                : #eef0f3;
+  --global-toc-bg-color               : var(--ab-surface);
+}
+
+html[data-theme="dark"] {
+  --ab-accent        : #7ba9e3;   /* 7.6:1 sobre #14181f */
+  --ab-accent-hover  : #a9c8f0;
+  --ab-accent-soft   : #1f2d44;
+  --ab-on-accent     : #0b1320;
+  --ab-text          : #e6e9ee;   /* 14:1 */
+  --ab-muted         : #a3adba;   /* 8:1 */
+  --ab-border        : #2d3542;
+  --ab-bg            : #14181f;
+  --ab-surface       : #1a2029;
+
+  /* Reasignar también aquí: el tema oscuro redefine estas variables con la misma especificidad */
+  --global-base-color                 : var(--ab-accent);
+  --global-bg-color                   : var(--ab-bg);
+  --global-footer-bg-color            : var(--ab-surface);
+  --global-border-color               : var(--ab-border);
+  --global-fig-caption-color          : var(--ab-muted);
+  --global-link-color                 : var(--ab-accent);
+  --global-link-color-hover           : var(--ab-accent-hover);
+  --global-masthead-link-color-hover  : var(--ab-accent);
+  --global-text-color                 : var(--ab-text);
+  --global-text-color-light           : var(--ab-muted);
+  --global-toc-bg-color               : var(--ab-surface);
+
+  --global-dark-border-color          : #3a4453;
+  --global-code-background-color      : #1d242e;
+  --global-code-text-color            : #cfd6e0;
+  --global-link-color-visited         : #b8a8e8;
+  --global-masthead-link-color        : #d6dbe3;
+  --global-thead-color                : #202732;
+}
+
+/* --------------------------------------------------------------------------
+   2. Tipografía (pila de sistema, sin fuentes externas)
+   -------------------------------------------------------------------------- */
+html {
+  font-size: 17px;
+  @include breakpoint($medium) {
+    font-size: 18px;
+  }
+}
+
+body {
+  font-family: var(--ab-font-sans);
+  line-height: 1.65;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ab-text);
+  line-height: 1.25;
+}
+
+h1, h2, h3,
+.page__title {
+  font-family: var(--ab-font-serif);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+h4, h5, h6 {
+  font-family: var(--ab-font-sans);
+  font-weight: 600;
+}
+
+h1 { font-size: 1.95rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.2rem; }
+h4, h5, h6 { font-size: 1rem; }
+
+.page__content h2 {
+  padding-bottom: 0.3em;
+  margin-top: 1.9em;
+  border-bottom: 1px solid var(--ab-border);
+}
+
+/* Texto corrido: ancho de línea cómodo y alineación a la izquierda.
+   :where() deja especificidad 0 (no pisa .text-center, etc.) pero sí anula
+   el text-align heredado de un contenedor con justify inline. */
+:where(.page__content, .archive) :where(p, li, dd, blockquote) {
+  text-align: left;
+}
+
+.page__content {
+  p, ul, ol, dl, blockquote {
+    max-width: var(--ab-measure);
+  }
+
+  p, li {
+    line-height: 1.65;
+  }
+}
+
+a { color: var(--global-link-color); }
+
+.page__content a,
+.archive a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+
+  &:hover {
+    color: var(--global-link-color-hover);
+    text-decoration-color: currentColor;
+  }
+}
+
+::selection {
+  color: var(--ab-text);
+  background: var(--ab-accent-soft);
+}
+
+::-moz-selection {
+  color: var(--ab-text);
+  background: var(--ab-accent-soft);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ab-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+blockquote {
+  font-style: normal;
+  color: var(--ab-muted);
+  border-left: 3px solid var(--ab-border);
+}
+
+hr { border-top-color: var(--ab-border); }
+
+/* Botones: acento sobrio con texto legible en ambos modos */
+.btn {
+  color: var(--ab-on-accent) !important;
+  font-family: var(--ab-font-sans);
+  border-radius: var(--ab-radius);
+
+  &:hover {
+    background-color: var(--ab-accent-hover);
+  }
+
+  &--inverse {
+    color: var(--ab-accent) !important;
+    border: 1px solid var(--ab-border) !important;
+    background-color: transparent;
+
+    &:hover {
+      color: var(--ab-accent-hover) !important;
+      border-color: var(--ab-accent) !important;
+      background-color: var(--ab-accent-soft);
+    }
+  }
+}
+
+/* Los iconos sociales de la plantilla fuerzan negro: heredar el color */
+.social-icons .fa,
+.social-icons .fas,
+.social-icons .fab,
+.social-icons .ai {
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   3. Masthead: superficie, borde fino, enlace activo subrayado en acento
+   -------------------------------------------------------------------------- */
+.masthead,
+.greedy-nav,
+.greedy-nav button,
+.masthead__menu-item {
+  background: var(--ab-surface);
+}
+
+.masthead {
+  box-shadow: none;
+  font-family: var(--ab-font-sans);
+
+  &::after {
+    background: var(--ab-border);
+  }
+}
+
+.masthead__inner-wrap {
+  font-family: var(--ab-font-sans);
+}
+
+.greedy-nav {
+  a {
+    color: var(--ab-muted);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+
+    &:hover {
+      color: var(--ab-accent);
+    }
+  }
+
+  .hidden-links {
+    background: var(--ab-surface);
+    border: 1px solid var(--ab-border);
+    border-radius: var(--ab-radius);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    &:before, &:after {
+      display: none;
+    }
+  }
+
+  .visible-links a:before {
+    height: 2px;
+    background: var(--ab-accent-soft);
+  }
+
+  .visible-links > li:first-child a {
+    color: var(--ab-text);
+    font-family: var(--ab-font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+.masthead__menu-item {
+  &--lg {
+    font-weight: 600;
+  }
+
+  &.selected a {
+    color: var(--ab-text);
+    font-weight: 600;
+    border-bottom: 2px solid var(--ab-accent);
+  }
+
+  &.selected a:hover {
+    color: var(--ab-text);
+    border-bottom: 2px solid var(--ab-accent);
+  }
+}
+
+#lang-switch a {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+/* --------------------------------------------------------------------------
+   4. Barra lateral
+   -------------------------------------------------------------------------- */
+.sidebar {
+  font-family: var(--ab-font-sans);
+
+  p, li {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+}
+
+/* Foto: pequeña, circular, recortada hacia la cara (la imagen tiene atril y valla) */
+.author__avatar {
+  width: 56px;
+
+  @include breakpoint($large) {
+    width: auto;
+  }
+}
+
+.author__avatar-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid var(--ab-border);
+  background: var(--ab-surface);
+
+  @include breakpoint($large) {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.author__avatar .author__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: center 20%;
+  /* La foto es cuadrada (atril y valla abajo): acercar hacia la cara */
+  transform: scale(1.5);
+  transform-origin: 46% 30%;
+}
+
+.author__content {
+  line-height: 1.3;
+}
+
+.sidebar .author__name {
+  margin: 0.8rem 0 0.15rem;
+  font-family: var(--ab-font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ab-text);
+
+  @media (max-width: 924px) {
+    margin: 0 0 0.1rem;
+    font-size: 1.05rem;
+  }
+}
+
+.sidebar .author__pronouns {
+  margin: 0 0 0.2rem;
+  color: var(--ab-muted);
+}
+
+.sidebar .author__bio {
+  margin: 0 0 1rem;
+  color: var(--ab-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+
+  @media (max-width: 924px) {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+}
+
+/* Botón del menú móvil (el JS lo usa para desplegar los enlaces; oculto en escritorio) */
+.author__urls-wrapper button.author__toggle {
+  padding: 0.35em 0.9em;
+  color: var(--ab-accent);
+  font-family: var(--ab-font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid var(--ab-border);
+  border-radius: var(--ab-radius);
+  cursor: pointer;
+
+  &:hover,
+  &.open {
+    background: var(--ab-accent-soft);
+    border-color: var(--ab-accent);
+  }
+}
+
+.author__urls {
+  /* Desplegable móvil: tarjeta con la superficie del tema (en escritorio el tema lo deja plano) */
+  @media (max-width: 924px) {
+    background: var(--ab-surface);
+    border-color: var(--ab-border);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  &:before {
+    border-color: var(--ab-border) transparent;
+  }
+
+  &:after {
+    border-color: var(--ab-surface) transparent;
+  }
+
+  /* Enlaces: icono en columna fija y texto alineado */
+  li {
+    margin-bottom: 0.1rem;
+  }
+
+  a,
+  .author__desktop {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+  }
+
+  a {
+    margin-bottom: 0;
+    padding: 0.2rem 0;
+    font-size: 0.85rem;
+    color: var(--ab-text);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--ab-accent);
+      text-decoration: none;
+    }
+  }
+
+  i {
+    flex: 0 0 1.35em;
+    width: 1.35em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: var(--ab-muted);
+    transition: color 0.15s ease-in-out;
+  }
+
+  a:hover i {
+    color: var(--ab-accent);
+  }
+
+  .icon-pad-right {
+    padding-right: 0;
+    margin-right: 0;
+  }
+}
+
+.sidebar .author__desktop {
+  display: none;
+  color: var(--ab-muted);
+  font-size: 0.85rem;
+  padding: 0.2rem 0;
+  white-space: normal;
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Pie discreto
+   -------------------------------------------------------------------------- */
+.page__footer {
+  background-color: var(--ab-surface);
+  border-top: 1px solid var(--ab-border);
+  color: var(--ab-muted);
+  font-family: var(--ab-font-sans);
+
+  a {
+    color: var(--ab-muted);
+
+    &:hover {
+      color: var(--ab-accent);
+      text-decoration: underline;
+    }
+  }
+
+  .fas,
+  .fab,
+  .far,
+  .fal,
+  .fa {
+    color: inherit;
+  }
+}
+
+.page__footer-follow {
+  li {
+    font-family: var(--ab-font-sans);
+    font-size: 0.78rem;
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+
+  a {
+    font-weight: 500;
+  }
+}
+
+.page__footer-copyright {
+  margin-top: 0.4rem;
+  font-family: var(--ab-font-sans);
+  font-size: 0.75rem;
+  color: var(--ab-muted);
+
+  .sep {
+    padding: 0 0.4em;
+    opacity: 0.6;
+  }
+}

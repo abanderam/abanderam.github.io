@@ -1,0 +1,25 @@
+{%- comment -%}Tarjeta de docencia. Uso: include teaching-card.html post=post{%- endcomment -%}
+{%- assign p = include.post -%}
+{%- assign first_block = p.content | split: "</p>" | first | strip_html | strip -%}
+{%- capture nl %}
+{% endcapture -%}
+{%- assign lines = first_block | split: nl -%}
+<article class="teaching-card">
+  <h2 class="teaching-card__title"><a href="{{ p.url | relative_url }}" rel="permalink">{{ p.type | default: p.title }}</a></h2>
+  <p class="teaching-card__venue">
+    {%- if p.venue %}<span>{{ p.venue }}</span>{% endif -%}
+    {%- if p.location %}<span>{{ p.location }}</span>{% endif -%}
+    {%- if p.date %}<span><time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: '%Y' }}</time></span>{% endif -%}
+  </p>
+  <ul class="teaching-card__courses">
+    {%- for line in lines -%}
+      {%- assign l = line | strip -%}
+      {%- if l != "" -%}
+        {%- assign idx = l | split: " (" -%}
+        {%- assign name = idx | first -%}
+        {%- assign rest = l | remove_first: name -%}
+        <li><strong>{{ name | strip }}</strong>{{ rest }}</li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</article>

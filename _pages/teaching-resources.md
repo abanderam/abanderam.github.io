@@ -13,8 +13,13 @@ Esta sección reúne los recursos y materiales de apoyo para la docencia. Aquí 
 
 Durante el curso 2026/27, las tutorías presenciales se realizarán en el siguiente horario:
 
-* **Lunes:** 10:30 a 12:30 h y de 15:00 a 17:30 h.
-* **Miércoles:** 12:30 a 14:00 h.
+<table class="office-hours">
+  <thead><tr><th scope="col">Día</th><th scope="col">Horario</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Lunes</th><td>10:30 a 12:30 h y de 15:00 a 17:30 h</td></tr>
+    <tr><th scope="row">Miércoles</th><td>12:30 a 14:00 h</td></tr>
+  </tbody>
+</table>
 
 Para garantizar la atención y evitar esperas, es necesario **concertar cita previa** a través de Microsoft Teams.
 

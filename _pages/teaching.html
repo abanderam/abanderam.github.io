@@ -5,12 +5,11 @@ permalink: /teaching/
 author_profile: true
 ---
 
-{% include base_path %}
+<p class="teaching-notice">Para las tutorías y otros recursos docentes, visita la sección de <a href="/teaching-resources/">Recursos Docentes</a>.</p>
 
-Para las tutorías y otros recursos docentes, visita la sección de <a href="/teaching-resources/">Recursos Docentes</a>
-
-
-
-{% for post in site.teaching reversed%}
-  {% include archive-single.html %}
+<div class="teaching-grid">
+{% assign entries = site.teaching | sort: "date" | reverse %}
+{% for post in entries %}
+  {% include teaching-card.html post=post %}
 {% endfor %}
+</div>
