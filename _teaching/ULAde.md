@@ -6,10 +6,11 @@ permalink: /teaching/ULGradADE
 date: 2025-09-01
 venue: "Universidad Loyola Andalucía"
 location: "Dos Hermanas, España"
+group: loyola
 ---
 
-Matemáticas Aplicadas a la Gestión Empresarial (2024/25-2025/26) [12 ECTS]<br>
-Análisis de Datos I [English] (2024/25) [12 ECTS]
+Matemáticas Aplicadas a la Gestión Empresarial (2024/25-2025/26) ·&nbsp;12&nbsp;ECTS<br>
+Análisis de Datos I (en inglés) (2024/25) ·&nbsp;12&nbsp;ECTS
 
 Matemáticas Aplicadas a la Gestión Empresarial
 =====

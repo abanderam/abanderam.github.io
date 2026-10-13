@@ -6,12 +6,13 @@ permalink: /teaching/USGradoFar
 date: 2023-01-01
 venue: "Universidad de Sevilla"
 location: "Sevilla, España"
+group: us_anterior
 ---
 
-Matemática Aplicada y Estadísitica (2022/23) [3 ECTS]
+Matemática Aplicada y Estadística (2022/23) ·&nbsp;3&nbsp;ECTS
 
 
-Matemática Aplicada y Estadísitica
+Matemática Aplicada y Estadística
 ======
 Asignatura del primer cuatrimestre del primer curso del Grado en Farmacia.
 

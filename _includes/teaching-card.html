@@ -6,11 +6,6 @@
 {%- assign lines = first_block | split: nl -%}
 <article class="teaching-card">
   <h2 class="teaching-card__title"><a href="{{ p.url | relative_url }}" rel="permalink">{{ p.type | default: p.title }}</a></h2>
-  <p class="teaching-card__venue">
-    {%- if p.venue %}<span>{{ p.venue }}</span>{% endif -%}
-    {%- if p.location %}<span>{{ p.location }}</span>{% endif -%}
-    {%- if p.date %}<span><time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: '%Y' }}</time></span>{% endif -%}
-  </p>
   <ul class="teaching-card__courses">
     {%- for line in lines -%}
       {%- assign l = line | strip -%}

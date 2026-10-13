@@ -27,7 +27,7 @@ redirect_from:
 </nav>
 
 <section class="home-section" id="sobre-mi">
-  <h2 class="home-section__title">Sobre mí</h2>
+  <h2 class="home-section__title">Trayectoria</h2>
   <div class="home-prose">
     <p>Actualmente soy Profesor Ayudante Doctor en el departamento de Matemática Aplicada I de la Universidad de Sevilla. Anteriormente he sido contratado FPI en el departamento de Ecuaciones Diferenciales y Análisis Numérico de la Universidad de Sevilla y Profesor Ayudante Doctor en el departamento de Métodos Cuantitativos de la Universidad Loyola Andalucía.</p>
     <p>Tengo un doctorado en Matemáticas, mi tesis se titula: <em>Some applications of Reduced Order Modelling to slow-fast dynamical systems, turbulence models and elliptic PDEs</em>. Soy investigador del grupo M2S2M (FQM-120) de la Universidad de Sevilla y anteriormente dentro del grupo MICA de la Universidad Loyola Andalucía.</p>
@@ -44,15 +44,15 @@ redirect_from:
   <div class="home-cards">
     <div class="home-card">
       <h3 class="home-card__title">Proper Orthogonal Decomposition (POD)</h3>
-      <p>Una de las técnicas de Modelado de Orden Reducido (ROM) en las que se centra mi investigación.</p>
+      <p>Construye una base de pocos modos óptimos a partir de simulaciones del modelo completo (<em>snapshots</em>) para reducir de forma drástica el coste de cálculo.</p>
     </div>
     <div class="home-card">
       <h3 class="home-card__title">Reduced Basis (RB)</h3>
-      <p>Técnica ROM para sistemas de ecuaciones diferenciales, ordinarias y en derivadas parciales.</p>
+      <p>Aproxima problemas parametrizados con una base construida a partir de soluciones para valores representativos de los parámetros, separando el cálculo costoso (<em>offline</em>) del rápido (<em>online</em>).</p>
     </div>
     <div class="home-card">
       <h3 class="home-card__title">Proper Generalized Decomposition (PGD)</h3>
-      <p>Tercera de las técnicas ROM que desarrollo, junto con POD y RB.</p>
+      <p>Busca la solución como suma de productos de funciones de cada variable o parámetro, evitando la maldición de la dimensionalidad en problemas paramétricos.</p>
     </div>
     <div class="home-card">
       <h3 class="home-card__title">Aplicaciones</h3>

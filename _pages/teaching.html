@@ -7,9 +7,26 @@ author_profile: true
 
 <p class="teaching-notice">Para las tutorías y otros recursos docentes, visita la sección de <a href="/teaching-resources/">Recursos Docentes</a>.</p>
 
-<div class="teaching-grid">
-{% assign entries = site.teaching | sort: "date" | reverse %}
-{% for post in entries %}
-  {% include teaching-card.html post=post %}
+{% assign teaching_groups = "us_actual|loyola|us_anterior" | split: "|" %}
+{% for g in teaching_groups %}
+  {% case g %}
+    {% when "us_actual" %}
+      {% assign g_title = "Universidad de Sevilla" %}{% assign g_sub = "Departamento de Matemática Aplicada I" %}
+    {% when "loyola" %}
+      {% assign g_title = "Universidad Loyola Andalucía" %}{% assign g_sub = "Departamento de Métodos Cuantitativos" %}
+    {% when "us_anterior" %}
+      {% assign g_title = "Universidad de Sevilla" %}{% assign g_sub = "Departamento de Ecuaciones Diferenciales y Análisis Numérico" %}
+  {% endcase %}
+  {% assign entries = site.teaching | where: "group", g | sort: "date" | reverse %}
+  {% if entries.size > 0 %}
+<section class="teaching-group">
+  <h2 class="teaching-group__title">{{ g_title }}</h2>
+  <p class="teaching-group__sub">{{ g_sub }}</p>
+  <div class="teaching-grid">
+  {% for post in entries %}
+    {% include teaching-card.html post=post %}
+  {% endfor %}
+  </div>
+</section>
+  {% endif %}
 {% endfor %}
-</div>

@@ -6,9 +6,10 @@ permalink: /teaching/ULGradISW
 date: 2025-09-01
 venue: "Universidad Loyola Andalucía"
 location: "Dos Hermanas, España"
+group: loyola
 ---
 
-Matemáticas II (2024/25-2025/26) [9 ECTS]
+Matemáticas II (2024/25-2025/26) ·&nbsp;9&nbsp;ECTS
 
 Matemáticas II
 ======
