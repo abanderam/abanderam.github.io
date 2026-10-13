@@ -1,0 +1,21 @@
+{%- comment -%}Charlas del CV agrupadas por año. Uso: include cv-talks.html lang="es|en"{%- endcomment -%}
+{%- assign talks = site.talks | sort: "date" | reverse -%}
+{%- assign by_year = talks | group_by_exp: "t", "t.date | date: '%Y'" -%}
+{%- for y in by_year -%}
+<div class="cv-year">
+  <div class="cv-year__label">{{ y.name }}</div>
+  <ul class="cv-year__items">
+    {%- for t in y.items -%}
+    {%- assign talk_title = t.content | strip_html | strip -%}
+    <li>
+      <span class="cv-item__text">
+        {%- if talk_title != "" -%}<em>{{ talk_title }}</em>. {% endif -%}
+        <a href="{{ t.url | relative_url }}">{{ t.title }}</a>.
+        {{ t.venue }}{% if t.location %}, {{ t.location }}{% endif %}.
+        {% if include.lang == "en" %}{{ t.date | date: "%B %Y" }}{% else %}{{ t.date | date: "%m/%Y" }}{% endif %}
+      </span>
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>
+{%- endfor -%}

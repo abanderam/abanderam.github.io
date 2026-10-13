@@ -1,0 +1,39 @@
+{%- comment -%}Docencia del CV por universidad/departamento. Uso: include cv-teaching.html lang="es|en"{%- endcomment -%}
+{%- assign cv_groups = "us_actual|loyola|us_anterior" | split: "|" -%}
+{%- capture nl %}
+{% endcapture -%}
+{%- for g in cv_groups -%}
+  {%- if include.lang == "en" -%}
+    {%- case g -%}
+      {%- when "us_actual" -%}{%- assign g_title = "University of Seville" -%}{%- assign g_sub = "Department of Applied Mathematics I" -%}
+      {%- when "loyola" -%}{%- assign g_title = "Universidad Loyola Andalucía" -%}{%- assign g_sub = "Department of Quantitative Methods" -%}
+      {%- when "us_anterior" -%}{%- assign g_title = "University of Seville" -%}{%- assign g_sub = "Department of Differential Equations and Numerical Analysis" -%}
+    {%- endcase -%}
+  {%- else -%}
+    {%- case g -%}
+      {%- when "us_actual" -%}{%- assign g_title = "Universidad de Sevilla" -%}{%- assign g_sub = "Departamento de Matemática Aplicada I" -%}
+      {%- when "loyola" -%}{%- assign g_title = "Universidad Loyola Andalucía" -%}{%- assign g_sub = "Departamento de Métodos Cuantitativos" -%}
+      {%- when "us_anterior" -%}{%- assign g_title = "Universidad de Sevilla" -%}{%- assign g_sub = "Departamento de Ecuaciones Diferenciales y Análisis Numérico" -%}
+    {%- endcase -%}
+  {%- endif -%}
+  {%- assign entries = site.teaching | where: "group", g | sort: "date" | reverse -%}
+  {%- if entries.size > 0 -%}
+<div class="cv-teaching-group">
+  <h3 class="cv-subtitle">{{ g_title }} <span>· {{ g_sub }}</span></h3>
+  <ul class="cv-list">
+    {%- for p in entries -%}
+      {%- assign first_block = p.content | split: "</p>" | first | strip_html | strip -%}
+      {%- assign lines = first_block | split: nl -%}
+      {%- for line in lines -%}
+        {%- assign l = line | strip -%}
+        {%- if l != "" -%}
+          {%- assign name = l | split: " (" | first -%}
+          {%- assign rest = l | remove_first: name -%}
+    <li><strong>{{ name | strip }}</strong>{{ rest }} <span class="cv-item__muted">— {{ p.type }}</span></li>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  </ul>
+</div>
+  {%- endif -%}
+{%- endfor -%}

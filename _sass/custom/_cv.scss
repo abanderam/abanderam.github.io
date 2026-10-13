@@ -1,0 +1,111 @@
+/* Página de CV (/cv/ y /cv_eng/) */
+.cv-section {
+  margin: 0 0 2.4em;
+}
+
+.cv-section__title {
+  margin: 0 0 0.8em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--ab-border, #dde2e8);
+  font-size: 1.35em;
+}
+
+.cv-entries {
+  display: grid;
+  gap: 0.9em;
+}
+
+.cv-entry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.15em;
+
+  @media (min-width: 40em) {
+    grid-template-columns: 9.5em minmax(0, 1fr);
+    gap: 1em;
+  }
+}
+
+.cv-entry__date {
+  color: var(--ab-muted, #586270);
+  font-size: 0.9em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cv-item__muted {
+  color: var(--ab-muted, #586270);
+  font-size: 0.92em;
+}
+
+.cv-skills {
+  display: grid;
+  gap: 0.6em;
+}
+
+.cv-skill .cv-chip {
+  display: inline-block;
+  margin: 0.25em 0 0 0.4em;
+  padding: 0.05em 0.7em;
+  font-size: 0.85em;
+  color: var(--ab-accent, #1f4e8c);
+  background: var(--ab-accent-soft, #e9eff8);
+  border-radius: 999px;
+}
+
+.cv-year {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2em;
+  margin-bottom: 1em;
+
+  @media (min-width: 40em) {
+    grid-template-columns: 4.5em minmax(0, 1fr);
+    gap: 1em;
+  }
+}
+
+.cv-year__label {
+  font-family: var(--ab-font-serif, serif);
+  font-weight: 600;
+  color: var(--ab-accent, #1f4e8c);
+}
+
+.cv-year__items,
+.cv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 0 0 0.7em;
+    line-height: 1.5;
+  }
+}
+
+.cv-item__links {
+  margin-left: 0.4em;
+  font-size: 0.88em;
+  white-space: nowrap;
+}
+
+.cv-subtitle {
+  margin: 1.2em 0 0.5em;
+  font-size: 1.05em;
+
+  span {
+    font-weight: 400;
+    color: var(--ab-muted, #586270);
+  }
+}
+
+@media print {
+  .masthead,
+  .sidebar,
+  .page__footer {
+    display: none;
+  }
+
+  .cv-section {
+    break-inside: avoid-page;
+  }
+}
