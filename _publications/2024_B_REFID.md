@@ -17,3 +17,5 @@ Universitaria / Desarrollo Profesional Docente / Modelos Poblacionales</p>
 
 <p>© Los autores</p>
 </div>
+
+<p>DOI: <a href="https://doi.org/10.12795/9788447227631.061">10.12795/9788447227631.061</a> · Open access, licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>.</p>

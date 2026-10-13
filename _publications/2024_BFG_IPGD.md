@@ -16,3 +16,5 @@ citation: 'Bandera, A., Fernández-García, S., & Gómez-Mármol, M. (2024). &qu
 
 <p>© 2024 The Author(s). Published by Elsevier Inc.</p>
 </div>
+
+<p>DOI: <a href="https://doi.org/10.1016/j.amc.2024.128579">10.1016/j.amc.2024.128579</a> · Open access, licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>.</p>

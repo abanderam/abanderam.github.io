@@ -19,3 +19,5 @@ citation: 'Bandera, A., Fernández-García, S., Gómez-Mármol, M., & Vidal, A. 
 
 <p>© The authors. Published by EDP Sciences, 2022</p>
 </div>
+
+<p>DOI: <a href="https://doi.org/10.1051/mmnp/2022016">10.1051/mmnp/2022016</a> · Open access, licencia <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
