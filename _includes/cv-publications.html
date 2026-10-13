@@ -1,0 +1,19 @@
+{%- comment -%}Publicaciones del CV agrupadas por año. Uso: include cv-publications.html lang="es|en"{%- endcomment -%}
+{%- assign pubs = site.publications | sort: "date" | reverse -%}
+{%- assign by_year = pubs | group_by_exp: "p", "p.date | date: '%Y'" -%}
+{%- for y in by_year -%}
+<div class="cv-year">
+  <div class="cv-year__label">{{ y.name }}</div>
+  <ul class="cv-year__items">
+    {%- for p in y.items -%}
+    <li>
+      <span class="cv-item__text">{{ p.citation }}</span>
+      <span class="cv-item__links">
+        <a href="{{ p.url | relative_url }}">{% if include.lang == "en" %}Details{% else %}Ficha{% endif %}</a>
+        {%- if p.doi %} · <a href="https://doi.org/{{ p.doi }}">DOI</a>{% endif -%}
+      </span>
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>
+{%- endfor -%}
