@@ -13,30 +13,72 @@ redirect_from:
 
 <section class="cv-section" id="formacion">
   <h2 class="cv-section__title">Formación</h2>
-  <div class="cv-entries">
-    <div class="cv-entry"><div class="cv-entry__date">2024</div><div class="cv-entry__body"><strong>Doctorado en Matemáticas</strong><div>Universidad de Sevilla</div><div><a href="/files/Tesis_ABM.pdf">Tesis doctoral</a></div></div></div>
-    <div class="cv-entry"><div class="cv-entry__date">2021</div><div class="cv-entry__body"><strong>Máster en Matemáticas</strong><div>Universidad de Sevilla</div><div><a href="/files/TFM_ABM.pdf">Trabajo Fin de Máster</a></div></div></div>
-    <div class="cv-entry"><div class="cv-entry__date">2019</div><div class="cv-entry__body"><strong>Grado en Matemáticas</strong><div>Universidad de Sevilla</div><div><a href="/files/TFG_ABM.pdf">Trabajo Fin de Grado</a></div></div></div>
-    <div class="cv-entry"><div class="cv-entry__date">2019</div><div class="cv-entry__body"><strong>Grado en Física</strong><div>Universidad de Sevilla</div><div><a href="/files/TFG_ABM.pdf">Trabajo Fin de Grado</a></div></div></div>
+  <div class="cv-cards cv-cards--two">
+    <article class="cv-card">
+      <h3 class="cv-card__title">Doctorado en Matemáticas</h3>
+      <p class="cv-card__meta">Universidad de Sevilla · 2024</p>
+      <p class="cv-card__link"><a href="/files/Tesis_ABM.pdf">Tesis doctoral</a></p>
+    </article>
+    <article class="cv-card">
+      <h3 class="cv-card__title">Máster en Matemáticas</h3>
+      <p class="cv-card__meta">Universidad de Sevilla · 2021</p>
+      <p class="cv-card__link"><a href="/files/TFM_ABM.pdf">Trabajo Fin de Máster</a></p>
+    </article>
+    <article class="cv-card">
+      <h3 class="cv-card__title">Grado en Matemáticas</h3>
+      <p class="cv-card__meta">Universidad de Sevilla · 2019</p>
+      <p class="cv-card__link"><a href="/files/TFG_ABM.pdf">Trabajo Fin de Grado</a></p>
+    </article>
+    <article class="cv-card">
+      <h3 class="cv-card__title">Grado en Física</h3>
+      <p class="cv-card__meta">Universidad de Sevilla · 2019</p>
+      <p class="cv-card__link"><a href="/files/TFG_ABM.pdf">Trabajo Fin de Grado</a></p>
+    </article>
   </div>
 </section>
 
 <section class="cv-section" id="experiencia">
   <h2 class="cv-section__title">Experiencia laboral</h2>
-  <div class="cv-entries">
-    <div class="cv-entry"><div class="cv-entry__date">desde 3/2026</div><div class="cv-entry__body"><strong>Profesor Ayudante Doctor</strong><div>Universidad de Sevilla · Departamento de Matemática Aplicada I</div><div class="cv-item__muted">Docencia e investigación</div></div></div>
-    <div class="cv-entry"><div class="cv-entry__date">8/2024 – 3/2026</div><div class="cv-entry__body"><strong>Profesor Ayudante Doctor</strong><div>Universidad Loyola Andalucía · Departamento de Métodos Cuantitativos</div><div class="cv-item__muted">Docencia e investigación. Coordinador de TFG del Grado en Matemática Aplicada</div></div></div>
-    <div class="cv-entry"><div class="cv-entry__date">10/2020 – 8/2024</div><div class="cv-entry__body"><strong>Contratado FPI</strong><div>Universidad de Sevilla · Departamento de Ecuaciones Diferenciales y Análisis Numérico</div><div class="cv-item__muted">Investigación en modelos de orden reducido para ecuaciones diferenciales</div><div class="cv-item__muted">Directores: Prof. Tomás Chacón, Prof. Soledad Fernández y Prof. Macarena Gómez</div></div></div>
+  <div class="cv-cards">
+    <article class="cv-card">
+      <span class="cv-card__date">desde 3/2026</span>
+      <h3 class="cv-card__title">Profesor Ayudante Doctor</h3>
+      <p class="cv-card__meta">Universidad de Sevilla · Departamento de Matemática Aplicada I</p>
+      <p class="cv-card__note">Docencia e investigación</p>
+    </article>
+    <article class="cv-card">
+      <span class="cv-card__date">8/2024 – 3/2026</span>
+      <h3 class="cv-card__title">Profesor Ayudante Doctor</h3>
+      <p class="cv-card__meta">Universidad Loyola Andalucía · Departamento de Métodos Cuantitativos</p>
+      <p class="cv-card__note">Docencia e investigación. Coordinador de TFG del Grado en Matemática Aplicada</p>
+    </article>
+    <article class="cv-card">
+      <span class="cv-card__date">10/2020 – 8/2024</span>
+      <h3 class="cv-card__title">Contratado FPI</h3>
+      <p class="cv-card__meta">Universidad de Sevilla · Departamento de Ecuaciones Diferenciales y Análisis Numérico</p>
+      <p class="cv-card__note">Investigación en modelos de orden reducido para ecuaciones diferenciales</p>
+      <p class="cv-card__note">Directores: Prof. Tomás Chacón, Prof. Soledad Fernández y Prof. Macarena Gómez</p>
+    </article>
   </div>
 </section>
 
 <section class="cv-section" id="habilidades">
   <h2 class="cv-section__title">Habilidades</h2>
-  <div class="cv-skills">
-    <div class="cv-skill"><strong>Simulación numérica</strong></div>
-    <div class="cv-skill"><strong>Modelado de orden reducido</strong></div>
-    <div class="cv-skill"><strong>Programación científica</strong><span class="cv-chip">Matlab</span><span class="cv-chip">Python</span><span class="cv-chip">FreeFEM++</span></div>
-    <div class="cv-skill"><strong>Habilidades docentes</strong><span class="cv-chip">Oratoria</span><span class="cv-chip">Innovación</span></div>
+  <div class="cv-cards cv-cards--two">
+    <article class="cv-card cv-card--skill">
+      <h3 class="cv-card__title">Simulación numérica</h3>
+    </article>
+    <article class="cv-card cv-card--skill">
+      <h3 class="cv-card__title">Modelado de orden reducido</h3>
+    </article>
+    <article class="cv-card cv-card--skill">
+      <h3 class="cv-card__title">Programación científica</h3>
+      <ul class="cv-chips"><li>Matlab</li><li>Python</li><li>FreeFEM++</li></ul>
+    </article>
+    <article class="cv-card cv-card--skill">
+      <h3 class="cv-card__title">Habilidades docentes</h3>
+      <ul class="cv-chips"><li>Oratoria</li><li>Innovación</li></ul>
+    </article>
   </div>
 </section>
 
