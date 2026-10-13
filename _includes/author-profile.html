@@ -6,14 +6,11 @@
 
 <div itemscope itemtype="http://schema.org/Person">
   <div class="author__avatar">
-    <div style="width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 0; border: none;">
+    <div class="author__avatar-frame">
       {% if author.avatar contains "://" %}
-      <img src="{{ author.avatar }}" alt="{{ author.name }}" fetchpriority="high" 
-        style="width: 100%; height: 100%; object-fit: cover; border-radius: 0; border: none;">
+      <img src="{{ author.avatar }}" class="author__photo" alt="{{ author.name }}" fetchpriority="high">
       {% else %}
-      <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" 
-        class="author__avatar" alt="{{ author.name }}" fetchpriority="high"
-        style="width: 100%; height: 100%; object-fit: cover; border-radius: 0; border: none;">
+      <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="author__photo" alt="{{ author.name }}" fetchpriority="high">
       {% endif %}
     </div>
   </div>
@@ -25,7 +22,8 @@
   </div>
 
   <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">Follow</button>
+    {% comment %} Solo visible en móvil (CSS): despliega la lista de enlaces vía assets/js/_main.js {% endcomment %}
+    <button type="button" class="author__toggle">{% if page.lang == 'en' %}Links{% else %}Enlaces{% endif %}</button>
     <ul class="author__urls social-icons">
       <!-- Font Awesome icons / Biographic information  -->
       {% if author.location %}

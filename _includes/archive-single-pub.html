@@ -1,0 +1,40 @@
+{% comment %}
+  Ítem de publicación para /publications/. Espera la variable `post` (documento de site.publications).
+  Datos opcionales en front matter: doi, license, license_url, pdf, paperurl, citation, venue.
+{% endcomment %}
+{% include base_path %}
+{% assign pub_title = post.title | markdownify | remove: "<p>" | remove: "</p>" | strip %}
+{% assign preview = post.content | strip_html | strip_newlines | normalize_whitespace | truncatewords: 45 %}
+{% assign own_file = false %}
+{% if post.paperurl contains "/files/" %}{% assign own_file = true %}{% endif %}
+{% assign cite_id = "cite-" | append: post.slug %}
+
+<article class="pub" itemscope itemtype="http://schema.org/ScholarlyArticle">
+  <h3 class="pub__title" itemprop="headline"><a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ pub_title }}</a></h3>
+
+  <p class="pub__venue">
+    {% if post.venue %}<em itemprop="isPartOf">{{ post.venue }}</em>{% endif %}
+    {% if post.license %}
+      <span class="pub-badge pub-badge--oa">Open access</span>
+      <span class="pub-badge" title="Licencia / License">{{ post.license }}</span>
+    {% endif %}
+  </p>
+
+  {% if post.citation %}
+    <p class="pub__cite" id="{{ cite_id }}">{{ post.citation }}</p>
+  {% endif %}
+
+  <p class="pub__actions">
+    {% if post.doi %}<a class="pub-btn" href="https://doi.org/{{ post.doi }}" rel="noopener">DOI</a>{% endif %}
+    {% if post.paperurl and own_file == false %}<a class="pub-btn" href="{{ post.paperurl }}" rel="noopener">Editor</a>{% endif %}
+    {% if post.pdf %}<a class="pub-btn" href="{{ post.pdf | prepend: base_path }}">PDF</a>{% elsif post.paperurl and own_file %}<a class="pub-btn" href="{{ post.paperurl }}">Texto</a>{% endif %}
+    {% if post.citation %}<button type="button" class="pub-btn pub-btn--copy" data-cite-target="{{ cite_id }}" data-copied="Copiado · Copied">Copiar cita</button>{% endif %}
+  </p>
+
+  {% if preview != "" %}
+    <details class="pub__abstract">
+      <summary>Resumen · Abstract</summary>
+      <p>{{ preview }} <a href="{{ base_path }}{{ post.url }}">Leer más · Read more</a></p>
+    </details>
+  {% endif %}
+</article>

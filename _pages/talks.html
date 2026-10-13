@@ -5,15 +5,25 @@ permalink: /talks/
 author_profile: true
 ---
 
-
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
+{% assign talks_sorted = site.talks | sort: "date" | reverse %}
+{% assign years = talks_sorted | group_by_exp: "t", "t.date | date: '%Y'" %}
+<div class="talks-timeline">
+{% for year in years %}
+  <section class="talks-year">
+    <h2 class="talks-year__label">{{ year.name }}</h2>
+    <ol class="talks-year__list">
+    {% for post in year.items %}
+      {% include talk-item.html post=post %}
+    {% endfor %}
+    </ol>
+  </section>
 {% endfor %}
-
-<div style="width: 100%; overflow: hidden;">
-  <iframe src="../talkmap/map.html" height="500px" width="100%" frameborder="0" scrolling="no"></iframe>
 </div>
 
+<details class="talks-map">
+  <summary>Mapa de charlas</summary>
+  <iframe src="../talkmap/map.html" height="500px" width="100%" style="width: 100%; border: 0;" frameborder="0" scrolling="no" loading="lazy" title="Mapa de charlas"></iframe>
+</details>
 
 {% if site.talkmap_link == true %}
 

@@ -1,0 +1,14 @@
+{%- comment -%}Elemento de línea de tiempo de charlas. Uso: include talk-item.html post=post{%- endcomment -%}
+{%- assign p = include.post -%}
+{%- assign is_upcoming = false -%}
+{%- assign talk_ts = p.date | date: "%s" | plus: 0 -%}
+{%- assign now_ts = site.time | date: "%s" | plus: 0 -%}
+{%- if p.date and talk_ts > now_ts %}{% assign is_upcoming = true %}{% endif -%}
+<li class="talk-item{% if is_upcoming %} talk-item--upcoming{% endif %}">
+  <h3 class="talk-item__title"><a href="{{ p.url | relative_url }}" rel="permalink">{{ p.title }}</a>{% if is_upcoming %} <span class="talk-item__badge">Próxima</span>{% endif %}</h3>
+  <p class="talk-item__meta">
+    {%- if p.venue %}<span>{{ p.venue }}</span>{% endif -%}
+    {%- if p.location %}<span>{{ p.location }}</span>{% endif -%}
+    {%- if p.date %}<span><time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: '%d/%m/%Y' }}</time></span>{% endif -%}
+  </p>
+</li>

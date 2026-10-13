@@ -1,0 +1,181 @@
+/* teaching, talks, teaching-resources */
+
+.teaching-notice {
+  margin: 0 0 1.5em;
+  padding: 0.6em 1em;
+  font-size: 0.9em;
+  color: var(--ab-muted, inherit);
+  border-left: 3px solid var(--ab-accent, #1f4e8c);
+  background: var(--ab-accent-soft, transparent);
+  border-radius: 0 var(--ab-radius, 4px) var(--ab-radius, 4px) 0;
+}
+
+.teaching-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2em;
+  margin-bottom: 2em;
+
+  @media (min-width: 48em) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.teaching-card {
+  padding: 1.1em 1.3em;
+  border: 1px solid var(--ab-border, rgba(128, 128, 128, 0.3));
+  border-top: 3px solid var(--ab-accent, #1f4e8c);
+  border-radius: var(--ab-radius, 4px);
+  background: var(--ab-surface, transparent);
+
+  &__title {
+    margin: 0 0 0.3em;
+    font-family: var(--ab-font-serif, Georgia, serif);
+    font-size: 1.05em;
+    line-height: 1.3;
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--ab-accent, #1f4e8c); text-decoration: underline; }
+  }
+
+  &__venue {
+    margin: 0 0 0.8em;
+    font-size: 0.82em;
+    color: var(--ab-muted, inherit);
+
+    span + span::before { content: " · "; }
+  }
+
+  &__courses {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.88em;
+    line-height: 1.45;
+
+    li { margin: 0 0 0.4em; padding: 0; }
+    strong { color: var(--ab-accent, #1f4e8c); }
+  }
+}
+
+.talks-timeline { margin-bottom: 2em; }
+
+.talks-year {
+  margin-bottom: 1.5em;
+
+  &__label {
+    margin: 0 0 0.5em;
+    padding: 0;
+    border: 0;
+    font-family: var(--ab-font-serif, Georgia, serif);
+    font-size: 1.3em;
+    color: var(--ab-accent, #1f4e8c);
+  }
+
+  &__list {
+    margin: 0 0 0 0.4em;
+    padding: 0 0 0 1.2em;
+    list-style: none;
+    border-left: 2px solid var(--ab-border, rgba(128, 128, 128, 0.3));
+  }
+}
+
+.talk-item {
+  position: relative;
+  margin: 0 0 1em;
+  padding: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.2em - 6px);
+    top: 0.45em;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--ab-accent, #1f4e8c);
+    background: var(--ab-surface, transparent);
+  }
+
+  &--upcoming::before { background: var(--ab-accent, #1f4e8c); }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    line-height: 1.35;
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--ab-accent, #1f4e8c); text-decoration: underline; }
+  }
+
+  &__meta {
+    margin: 0.15em 0 0;
+    font-size: 0.82em;
+    color: var(--ab-muted, inherit);
+
+    span + span::before { content: " · "; }
+  }
+
+  &__badge {
+    display: inline-block;
+    margin-left: 0.4em;
+    padding: 0.05em 0.6em;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: var(--ab-accent, #1f4e8c);
+    border: 1px solid var(--ab-accent, #1f4e8c);
+    border-radius: 999px;
+    background: var(--ab-accent-soft, transparent);
+  }
+}
+
+.talks-map {
+  margin: 1.5em 0;
+  border: 1px solid var(--ab-border, rgba(128, 128, 128, 0.3));
+  border-radius: var(--ab-radius, 4px);
+
+  summary {
+    padding: 0.6em 1em;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--ab-accent, #1f4e8c);
+  }
+
+  iframe { display: block; width: 100%; border: 0; }
+}
+
+.office-hours {
+  display: table;
+  width: auto;
+  min-width: 60%;
+  margin: 0.5em 0 1.2em;
+  border-collapse: collapse;
+  font-size: 0.95em;
+
+  th, td {
+    padding: 0.55em 1em;
+    text-align: left;
+    border: 0;
+    border-bottom: 1px solid var(--ab-border, rgba(128, 128, 128, 0.3));
+    background: transparent;
+  }
+
+  thead th {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ab-muted, inherit);
+    border-bottom: 2px solid var(--ab-accent, #1f4e8c);
+  }
+
+  tbody th {
+    font-family: var(--ab-font-serif, Georgia, serif);
+    font-weight: 700;
+    color: var(--ab-accent, #1f4e8c);
+    white-space: nowrap;
+  }
+}
