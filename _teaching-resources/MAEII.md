@@ -16,3 +16,7 @@ Asignatura del segundo cuatrimestre del primer curso del Grado en Edificación.
   - Tema 3. Integración numérica.
   - Tema 4. Integral de línea.
   - Tema 5. Integral múltiple.
+
+**Recursos**
+
+- [Examen resuelto con GeoGebra · 3.ª convocatoria 2026](/files/Libro_GeoGebra_MAEII_3Conv_2627.html)
