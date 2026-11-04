@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Libro GeoGebra · MAEI Parcial 1 G3 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2330;--mut:#5b6475;--acc:#1f5fbf;--acc2:#e8f0fc;--bd:#d9dee7;--ok:#0b7a43;}
+@media (prefers-color-scheme:dark){:root{--bg:#14171c;--card:#1c2027;--ink:#e6e9ef;--mut:#9aa3b2;--acc:#6aa5ff;--acc2:#1f2c44;--bd:#2d3440;--ok:#4cc58a;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:20px 24px;border-bottom:1px solid var(--bd);background:var(--card)}
+header h1{margin:0;font-size:1.25rem}
+header p{margin:2px 0 0;color:var(--mut);font-size:.9rem}
+.wrap{display:flex;gap:0;max-width:1300px;margin:0 auto}
+nav{width:230px;flex:none;padding:18px 12px;position:sticky;top:0;align-self:flex-start}
+nav button{display:block;width:100%;text-align:left;margin:0 0 6px;padding:10px 12px;border:1px solid var(--bd);background:var(--card);color:var(--ink);border-radius:8px;cursor:pointer;font:inherit;font-size:.92rem}
+nav button small{display:block;color:var(--mut);font-size:.78rem}
+nav button.on{background:var(--acc2);border-color:var(--acc);color:var(--acc)}
+main{flex:1;min-width:0;padding:18px 24px 60px}
+section{display:none}section.on{display:block}
+h2{margin:.2em 0 .4em;font-size:1.35rem}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px 18px;margin:0 0 16px}
+.enun{border-left:4px solid var(--acc)}
+.pts{color:var(--mut);font-size:.85rem}
+h3{margin:.2em 0 .3em;font-size:1.02rem;color:var(--acc)}
+.res{color:var(--ok);font-weight:600}
+.ggb{border:1px solid var(--bd);border-radius:10px;overflow:hidden;background:#fff;margin-bottom:8px}
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}
+.tools button{padding:6px 11px;border:1px solid var(--bd);background:var(--card);color:var(--ink);border-radius:999px;cursor:pointer;font:inherit;font-size:.85rem}
+.tools button.off{opacity:.45;text-decoration:line-through}
+.tools button.dl{border-color:var(--acc);color:var(--acc);margin-left:auto}
+table{border-collapse:collapse;margin:8px 0;font-size:.92rem}
+td,th{border:1px solid var(--bd);padding:4px 10px;text-align:center}
+.cmd{font-family:ui-monospace,Menlo,monospace;font-size:.82rem;background:var(--acc2);padding:2px 6px;border-radius:4px;white-space:pre-wrap}
+.sum td:first-child{text-align:left}
+@media(max-width:820px){.wrap{display:block}nav{width:auto;position:static;display:flex;flex-wrap:wrap;gap:6px;padding:12px}nav button{width:auto;margin:0}main{padding:12px 16px 40px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Matemática Aplicada a la Edificación I · Resolución con GeoGebra</h1>
+  <p>Evaluación continua, Parcial 1 · Grupo 3 · 4 de noviembre de 2026 · Grado en Edificación (E.T.S.I.E., Universidad de Sevilla)</p>
+</header>
+<div class="wrap">
+<nav id="nav"></nav>
+<main>
+
+<section id="s0">
+  <h2>Resumen de resultados</h2>
+  <div class="card">
+    <table class="sum" style="width:100%">
+      <tr><th style="text-align:left">Problema</th><th>Resultado</th></tr>
+      <tr><td><b>1.</b> Probetas de hormigón</td><td>Frecuencias \(6,2,9,10,3\) · \(P_{80}=58.18\) MPa · \(CV_X=15.0\%,\ CV_Y=11.9\%\) (Y más homogénea) · \(r=-0.904\) · \(y=90.749-68.054\,x\) · \(\Delta Y=-3.40\) MPa</td></tr>
+      <tr><td><b>2.</b> Transformaciones</td><td>Homotecia de centro \((1,1)\) y razón 3: \(x'=3x-2,\ y'=3y-2\) · \(G\circ T\): giro de 90° y centro \((0,3)\)</td></tr>
+      <tr><td><b>3.</b> Estands (cuádrica)</td><td>\((x-1)^2+ay^2+(4a-9)(z-3)^2=5a(a-2)\) · \(a=1\) hiperboloide 2 hojas, \(a=2\) cono, \(a=3\) elipsoide · \(a=2\): punto más alto \((1,0,3)\), 3 m; corte \(z=2\): elipse \((x-1)^2+2y^2=1\)</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <p>Cada capítulo contiene el enunciado, la resolución paso a paso y una <b>construcción interactiva de GeoGebra</b> (los botones bajo cada figura muestran u ocultan objetos; «Descargar .ggb» guarda la construcción).</p>
+    <p class="pts">Las construcciones se cargan desde geogebra.org, por lo que hace falta conexión a Internet. Los resultados se han verificado numéricamente con Python (NumPy/SymPy).</p>
+  </div>
+</section>
+
+<!-- ============ PROBLEMA 1 ============ -->
+<section id="s1">
+  <h2>Problema 1 <span class="pts">[3 puntos]</span></h2>
+  <div class="card enun">
+    Se ensayan a compresión \(n=30\) probetas de hormigón (mismo cemento, curadas 28 días). Se registra la relación agua/cemento \(X\) y la resistencia \(Y\) (MPa); datos en <code>DatosProbetas.ggb</code>.
+    <b>(a)</b> Población, muestra, unidad estadística y tipo de variables. <b>(b)</b> Tabla de frecuencias de \(Y\) en intervalos de amplitud 5. <b>(c)</b> Resistencia mínima del 20 % más resistente. <b>(d)</b> ¿Qué variable es más homogénea? <b>(e)</b> Dependencia lineal y recta de regresión. <b>(f)</b> Efecto de aumentar \(X\) en 0.05 y fiabilidad.
+  </div>
+  <div class="card">
+    <h3>(a) Conceptos básicos [0.5]</h3>
+    <ul>
+      <li><b>Población:</b> todas las probetas de hormigón (mismo cemento, curadas 28 días) que podrían fabricarse y ensayarse en la obra.</li>
+      <li><b>Muestra:</b> las \(n=30\) probetas ensayadas.</li>
+      <li><b>Unidad estadística:</b> cada probeta (amasada) ensayada.</li>
+      <li>\(X\): relación agua/cemento, <b>cuantitativa continua</b> (adimensional). \(Y\): resistencia a compresión (MPa), <b>cuantitativa continua</b>.</li>
+    </ul>
+    <h3>(b) Tabla de frecuencias [0.5]</h3>
+    <table>
+      <tr><th>Intervalo</th><th>Marca \(c_i\)</th><th>\(n_i\)</th><th>\(N_i\)</th><th>\(f_i\)</th><th>\(F_i\)</th></tr>
+      <tr><td>[40, 45)</td><td>42.5</td><td>6</td><td>6</td><td>0.2000</td><td>0.2000</td></tr>
+      <tr><td>[45, 50)</td><td>47.5</td><td>2</td><td>8</td><td>0.0667</td><td>0.2667</td></tr>
+      <tr><td>[50, 55)</td><td>52.5</td><td>9</td><td>17</td><td>0.3000</td><td>0.5667</td></tr>
+      <tr><td>[55, 60)</td><td>57.5</td><td>10</td><td>27</td><td>0.3333</td><td>0.9000</td></tr>
+      <tr><td>[60, 65)</td><td>62.5</td><td>3</td><td>30</td><td>0.1000</td><td>1.0000</td></tr>
+    </table>
+    <b>GeoGebra:</b> con los datos de \(Y\) en la lista <span class="cmd">resistencia</span> y los límites <span class="cmd">limClases={40,45,50,55,60,65}</span>, las frecuencias absolutas se obtienen con
+    <span class="cmd">Frecuencia(limClases, resistencia)</span> \(=\{6,2,9,10,3\}\). El resto de columnas (\(N_i,f_i,F_i\)) salen de las acumuladas y de dividir entre \(n=30\).
+    <h3>(c) 20 % más resistente: percentil \(P_{80}\) [0.5]</h3>
+    <b>GeoGebra:</b> <span class="cmd">Percentil(resistencia, 0.8)</span> \(=\mathbf{58.18}\) MPa.
+    Comprobación a mano con los datos ordenados: GeoGebra interpola en la posición \(0.8\,(n+1)=24.8\), entre \(x_{(24)}=58.1\) y \(x_{(25)}=58.2\): \(58.1+0.8\,(58.2-58.1)=58.18\). Las 6 probetas más resistentes (58.2, 58.3, 59.7, 60.9, 60.9 y 64.4 MPa) lo superan.
+    <span class="res">Significado:</span> el 20 % de las probetas alcanza al menos ≈ 58.18 MPa; el 80 % restante queda por debajo. Sirve como referencia de la cola alta del control de calidad (resistencias excepcionales).
+    <h3>(d) Homogeneidad [0.5]</h3>
+    Variables con unidades y magnitudes distintas: se compara con el <b>coeficiente de variación</b> \(CV=\sigma/|\bar x|\) (adimensional). Con \(\sum x=16.67\), \(\sum x^2=9.4721\), \(\sum y=1588\), \(\sum y^2=85244.1\):
+    \[ \bar x=0.5557,\ \sigma_X=0.0835\Rightarrow CV_X=0.1503;\qquad \bar y=52.933,\ \sigma_Y=6.287\Rightarrow CV_Y=0.1188. \]
+    <span class="res">\(Y\) es más homogénea</span> (CV 11.9 % frente a 15.0 %).
+    <h3>(e) Regresión lineal [0.5]</h3>
+    \[ r=-0.9037,\qquad r^2=0.8167. \]
+    Como \(r\) es cercano a \(-1\), la dependencia lineal es <b>fuerte e inversa</b>. Como la resistencia depende de la relación agua/cemento, la variable dependiente es \(Y\) (recta de \(Y\) sobre \(X\)):
+    \[ b=-68.054,\quad a=\bar y-b\bar x=90.749\ \Rightarrow\ \boxed{\,y=90.749-68.054\,x\,} \]
+    <b>GeoGebra:</b> estos valores se obtienen en la <b>Vista Hoja de Cálculo</b> seleccionando las columnas de \(X\) e \(Y\) y usando <b>Análisis de dos variables</b> (modelo de regresión lineal de \(Y\) sobre \(X\)), que da la recta y el coeficiente de correlación.
+    <h3>(f) Predicción [0.5]</h3>
+    \(\Delta Y=b\cdot0.05=-3.40\) MPa: la resistencia <b>disminuye ≈ 3.4 MPa</b> por cada 0.05 que aumenta \(X\).
+    <span class="res">Fiabilidad:</span> alta, porque \(r=-0.904\) (\(|r|\) cercano a 1) y \(r^2=0.817\).
+  </div>
+  <div class="ggb" id="g1"></div>
+  <div class="tools" id="t1"></div>
+  <div class="ggb" id="g1b"></div>
+  <div class="tools" id="t1b"></div>
+</section>
+
+<!-- ============ PROBLEMA 2 ============ -->
+<section id="s2">
+  <h2>Problema 2 <span class="pts">[3.5 puntos]</span></h2>
+  <div class="card enun">
+    <b>(a)</b> Homotecia de razón positiva que envía \((x-2)^2+(y+1)^2=4\) en \((x-4)^2+(y+5)^2=36\): ecuación matricial, centro y razón. <b>(b)</b> \(T\): traslación de vector \(\vec v=(2,0)\); \(G\): giro de centro \(C=(1,2)\) y 90° antihorario. 1) Ecuaciones matriciales. 2) Comprobar que \(G\circ T\) es un giro; centro y ángulo. 3) Efecto sobre un rectángulo.
+  </div>
+  <div class="card">
+    <h3>(a) Homotecia [1]</h3>
+    Radios 2 y 6 ⇒ razón \(k=6/2=3>0\). Centros de las circunferencias: \(C_1=(2,-1)\mapsto C_2=(4,-5)\). El centro \(O=(o_1,o_2)\) cumple \(C_2-O=3(C_1-O)\):
+    \[ 4-o_1=3(2-o_1)\Rightarrow o_1=1,\qquad -5-o_2=3(-1-o_2)\Rightarrow o_2=1. \]
+    <span class="res">Centro \(O=(1,1)\), razón \(k=3\).</span> Ecuación \(P'=O+k(P-O)\), en forma matricial \(\begin{pmatrix}1&0&0\\M&k&0\\N&0&k\end{pmatrix}\) con \(M=(1-k)o_1=-2\), \(N=(1-k)o_2=-2\):
+    \[ \begin{pmatrix}1\\x'\\y'\end{pmatrix}=\begin{pmatrix}1&0&0\\-2&3&0\\-2&0&3\end{pmatrix}\begin{pmatrix}1\\x\\y\end{pmatrix}\ \iff\ x'=3x-2,\ y'=3y-2. \]
+    Comprobación: \((2,-1)\mapsto(4,-5)\) y radio \(2\cdot3=6\). ✓
+    <h3>(b.1) Ecuaciones de \(T\) y \(G\) [0.75]</h3>
+    \[ T:\ \begin{pmatrix}1\\x'\\y'\end{pmatrix}=\begin{pmatrix}1&0&0\\2&1&0\\0&0&1\end{pmatrix}\begin{pmatrix}1\\x\\y\end{pmatrix}. \]
+    Giro de 90° y centro \((1,2)\): \(\begin{pmatrix}x'-1\\y'-2\end{pmatrix}=\begin{pmatrix}0&-1\\1&0\end{pmatrix}\begin{pmatrix}x-1\\y-2\end{pmatrix}\Rightarrow x'=3-y,\ y'=x+1\):
+    \[ G:\ \begin{pmatrix}1\\x'\\y'\end{pmatrix}=\begin{pmatrix}1&0&0\\3&0&-1\\1&1&0\end{pmatrix}\begin{pmatrix}1\\x\\y\end{pmatrix}. \]
+    <h3>(b.2) \(G\circ T\) es un giro [1.25]</h3>
+    Se descompone cada transformación en producto de <b>simetrías axiales</b> \(S_r\):
+    <ul>
+      <li>\(T\): dos ejes paralelos, perpendiculares a \(\vec v\) y a distancia \(|\vec v|/2=1\): \(a:\ x=0\) y \(b:\ x=1\). Entonces \(T=S_b\circ S_a\), pues \(x\mapsto-x\mapsto2-(-x)=x+2\).</li>
+      <li>\(G\): dos ejes que se cortan en \(C=(1,2)\) formando un ángulo de \(90^\circ/2=45^\circ\). Se elige el primero igual a \(b:\ x=1\) y el segundo \(d:\ x+y=3\) (recta por \(C\) a 45° de \(b\)). Entonces \(G=S_d\circ S_b\): \((x,y)\mapsto(2-x,y)\mapsto(3-y,\,1+x)\). ✓</li>
+    </ul>
+    Por tanto
+    \[ G\circ T=S_d\circ S_b\circ S_b\circ S_a=S_d\circ S_a,\qquad S_b\circ S_b=\mathrm{Id}. \]
+    Los ejes \(a:\ x=0\) y \(d:\ x+y=3\) se cortan en \((0,3)\) y forman 45°: el producto de dos simetrías de ejes secantes es un <b>giro</b> de centro el punto de corte y ángulo doble del que forman los ejes:
+    \[ \text{centro }(0,3),\qquad\text{ángulo }2\cdot45^\circ=90^\circ\ \text{(antihorario)}. \]
+    Comprobación: \(S_d\circ S_a:\ (x,y)\mapsto(-x,y)\mapsto(3-y,\,3+x)\), es decir
+    \(G\circ T=\begin{pmatrix}1&0&0\\3&0&-1\\3&1&0\end{pmatrix}\). Además \((0,3)\mapsto(0,3)\) y \((0,0)\mapsto(3,3)\), ambos a distancia 3 del centro. ✓
+    <h3>(b.3) Rectángulo [0.5]</h3>
+    \(T\) y \(G\) son <b>movimientos rígidos (isometrías directas)</b>, y su composición también: conservan distancias, ángulos y orientación. El rectángulo transformado es <b>congruente</b> al original: mismas dimensiones (base y altura) y <b>mismo área</b>; sólo cambia su posición y queda girado 90° (lado horizontal ↔ vertical).
+  </div>
+  <div class="ggb" id="g2a"></div>
+  <div class="tools" id="t2a"></div>
+  <div class="ggb" id="g2b"></div>
+  <div class="tools" id="t2b"></div>
+</section>
+
+<!-- ============ PROBLEMA 3 ============ -->
+<section id="s3">
+  <h2>Problema 3 <span class="pts">[3.5 puntos]</span></h2>
+  <div class="card enun">
+    Cubiertas de tres estands (\(a=1,2,3\)), porciones de \(Q_a:\ x^2+ay^2+(4a-9)z^2-2x-6(4a-9)z-5a^2+46a-80=0\), con \(a\in[1,4]\); suelo \(z=0\).
+    <b>(a)</b> Clasificar \(Q_a\) según \(a\). <b>(b)</b> Esbozo y tipo de cubierta de cada estand. <b>(c)</b> Para \(a=2\): punto más alto y su altura; corte con \(z=2\).
+  </div>
+  <div class="card">
+    <h3>(a) Clasificación [2]</h3>
+    Con \(c=4a-9\): \(x^2-2x=(x-1)^2-1\) y \(c z^2-6cz=c(z-3)^2-9c\). Así
+    \[ (x-1)^2+a\,y^2+c\,(z-3)^2=1+9c+5a^2-46a+80=5a^2-10a. \]
+    \[ \boxed{(x-1)^2+a\,y^2+(4a-9)(z-3)^2=5a(a-2)} \]
+    Centro \((1,0,3)\). Para \(a\in[1,4]\): \(a>0\), el signo de \(4a-9\) cambia en \(a=9/4\) y el de \(5a(a-2)\) en \(a=2\).
+    <table>
+      <tr><th>\(a\)</th><th>\(4a-9\)</th><th>\(5a(a-2)\)</th><th>Cuádrica</th></tr>
+      <tr><td>\([1,2)\)</td><td>\(<0\)</td><td>\(<0\)</td><td><b>Hiperboloide de dos hojas</b> (eje \(z\))</td></tr>
+      <tr><td>\(2\)</td><td>\(-1\)</td><td>\(0\)</td><td><b>Cono elíptico</b> (vértice \((1,0,3)\))</td></tr>
+      <tr><td>\((2,\tfrac94)\)</td><td>\(<0\)</td><td>\(>0\)</td><td><b>Hiperboloide de una hoja</b></td></tr>
+      <tr><td>\(\tfrac94\)</td><td>\(0\)</td><td>\(>0\)</td><td><b>Cilindro elíptico</b> \((x-1)^2+\tfrac94y^2=\tfrac{45}{16}\), eje \(z\)</td></tr>
+      <tr><td>\((\tfrac94,4]\)</td><td>\(>0\)</td><td>\(>0\)</td><td><b>Elipsoide</b></td></tr>
+    </table>
+    Por ejemplo, \(a=1\): \(5(z-3)^2-(x-1)^2-y^2=5\) (dos hojas). \(a=2\): \((x-1)^2+2y^2=(z-3)^2\). \(a=3\): \((x-1)^2+3y^2+3(z-3)^2=15\).
+    <h3>(b) Esbozos y asociación [0.75]</h3>
+    <ul>
+      <li><b>\(a=1\) → cúpula rebajada hiperboloidal</b>: hoja inferior \(z=3-\sqrt{1+\tfrac{(x-1)^2+y^2}{5}}\), vértice \((1,0,2)\), apoyada en el suelo en la circunferencia \((x-1)^2+y^2=40\).</li>
+      <li><b>\(a=2\) → carpa cónica</b>: cono de vértice \((1,0,3)\); en el suelo, elipse \((x-1)^2+2y^2=9\).</li>
+      <li><b>\(a=3\) → cúpula elipsoidal</b>: elipsoide completo de semiejes \(\sqrt{15},\sqrt5,\sqrt5\) y centro \((1,0,3)\); cima en \(z=3+\sqrt5\approx5.24\) y punto más bajo en \(z=3-\sqrt5\approx0.76\) (no llega a cortar el suelo).</li>
+    </ul>
+    <h3>(c) Estand \(a=2\) [0.75]</h3>
+    Sustituyendo \(a=2\) en \(Q_a\) (\(4a-9=-1\); \(-5a^2+46a-80=-8\)): \(x^2+2y^2-z^2-2x+6z-8=0\), que completando cuadrados es
+    \[ (x-1)^2+2y^2=(z-3)^2 :\]
+    <b>cono elíptico</b> de vértice \((1,0,3)\). La cubierta es la hoja que baja al suelo (\(z\le3\)), y su punto más alto es el <span class="res">vértice \((1,0,3)\): altura 3 m</span>.
+    Para \(z=2\): \(x^2+2y^2-4-2x+12-8=0\iff x^2-2x+2y^2=0\iff(x-1)^2+2y^2=1\), es decir
+    \[ \frac{(x-1)^2}{1}+\frac{y^2}{1/2}=1: \]
+    <span class="res">elipse</span> de centro \((1,0)\), semiejes \(1\) (en \(x\)) y \(\tfrac1{\sqrt2}\approx0.707\) (en \(y\)), a 2 m de altura.
+  </div>
+  <div class="ggb" id="g3"></div>
+  <div class="tools" id="t3"></div>
+</section>
+
+</main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<script>
+/* ---------- Definición de las construcciones ---------- */
+const X=[0.55,0.47,0.42,0.61,0.64,0.56,0.59,0.45,0.57,0.45,0.55,0.5,0.69,0.56,0.46,0.48,0.57,0.65,0.5,0.67,0.47,0.68,0.62,0.68,0.69,0.45,0.61,0.47,0.58,0.48];
+const Yv=[57.2,57.1,58.2,49.0,44.4,52.2,53.8,60.9,58.3,59.7,53.5,53.8,42.0,52.7,56.3,56.4,50.8,44.0,60.9,41.0,58.0,46.8,50.9,43.7,41.7,64.4,53.9,58.1,51.0,57.3];
+const APPS = {
+ g1:{app:'classic',h:480,file:'P1_Probetas_Regresion',cmds:[
+  'relacion={'+X.join(',')+'}','resistencia={'+Yv.join(',')+'}',
+  'D=Zip((u,v),u,relacion,v,resistencia)',
+  'rec=FitLine(D)','r=PMCC(D)',
+  'xm=Mean(relacion)','ym=Mean(resistencia)','M=(xm,ym)',
+  'ZoomIn(0.35,35,0.75,70)',
+  'SetColor(D,"Blue")','SetPointSize(D,4)','SetColor(rec,"Red")','SetLineThickness(rec,4)','SetColor(M,"Black")',
+  'T1=Text("r = "+r+"     "+rec,(0.37,37))',
+  'fr=FitPoly(D,1)','SetVisibleInView(fr,1,false)',
+  'Pred=Segment((0.5,fr(0.5)),(0.55,fr(0.55)))','SetColor(Pred,"Green")','SetLineThickness(Pred,6)'],
+  tools:[['Nube de puntos','D'],['Recta de regresión','rec'],['Punto medio','M'],['r y ecuación','T1'],['Δx = 0.05','Pred']]},
+ g1b:{app:'classic',h:420,file:'P1_Probetas_Histograma',cmds:[
+  'resistencia={'+Yv.join(',')+'}','limClases={40,45,50,55,60,65}','frec=Frequency(limClases,resistencia)','P80v=Percentile(resistencia,0.8)',
+  'h=Histogram(limClases,frec/5)',
+  'P80=Segment((P80v,0),(P80v,2.2))','SetColor(P80,"Red")','SetLineThickness(P80,4)',
+  'T2=Text("P80 = "+P80v+" MPa (sin agrupar)",(44,2.3))',
+  'ZoomIn(38,-0.3,67,2.8)','SetColor(h,"Blue")'],
+  tools:[['Histograma','h'],['P80','P80'],['Texto','T2']]},
+ g2a:{app:'classic',h:520,file:'P2a_Homotecia',cmds:[
+  'c1: (x-2)^2+(y+1)^2=4','c2: (x-4)^2+(y+5)^2=36',
+  'O=(1,1)','k=3','h1=Dilate(c1,k,O)','C1=(2,-1)','C2=(4,-5)',
+  'r1=Line(O,C1)',
+  'ZoomIn(-8,-12,12,6)',
+  'SetColor(c1,"Blue")','SetColor(c2,"Red")','SetColor(h1,"Green")','SetLineThickness(h1,2)','SetColor(O,"Black")',
+  'SetColor(r1,"Gray")',
+  'T1=Text("Centro O=(1,1), razón k = "+k+"; x\'=3x-2, y\'=3y-2",(-7,5))'],
+  tools:[['Circ. original','c1'],['Circ. imagen','c2'],['Dilate(c1,3,O)','h1'],['Recta de centros','r1'],['Texto','T1']]},
+ g2b:{app:'classic',h:560,file:'P2b_Giro_GoT',cmds:[
+  'rect=Polygon((0,0),(3,0),(3,1),(0,1))',
+  'Cg=(1,2)','vv=Vector((2,0))',
+  'rT=Translate(rect,vv)','rG=Rotate(rT,90°,Cg)',
+  'Z=(0,3)','chk=Rotate(rect,90°,Z)',
+  'ejeA: x=0','ejeB: x=1','ejeD: x+y=3','s1=Reflect(rect,ejeA)','s2=Reflect(s1,ejeB)','s3=Reflect(s2,ejeD)',
+  'ZoomIn(-6,-3,8,8)',
+  'SetColor(rect,"Blue")','SetColor(rT,"Orange")','SetColor(rG,"Red")','SetColor(chk,"Green")',
+  'SetFilling(rG,0.3)','SetFilling(rect,0.2)','SetFilling(rT,0.2)','SetFilling(chk,0)',
+  'SetColor(Z,"Black")','SetCaption(Z,"centro (0,3)")','SetLabelMode(Z,3)','ShowLabel(Z,true)',
+  'AreaR=Area(rect)','AreaG=Area(rG)',
+  'T1=Text("Áreas: "+AreaR+" = "+AreaG+"   G∘T = giro 90°, centro (0,3)",(-5.5,7))'],
+  hidden:['chk','ejeA','ejeB','ejeD','s1','s2','s3'],
+  tools:[['Rectángulo',"rect"],['T(rect)','rT'],['G(T(rect))','rG'],['Giro (0,3), 90°','chk'],['Centro G∘T','Z'],['Ejes a, b, d',['ejeA','ejeB','ejeD']],['Simetrías (Sₐ, S_b, S_d)',['s1','s2','s3']],['Áreas','T1']]},
+ g3:{app:'3d',h:620,file:'P3_Estands_Cuadrica',cmds:[
+  'cub1=Surface(1+s cos(t), s sin(t), 3-sqrt(1+s^2/5), s, 0, sqrt(40), t, 0, 2pi)',
+  'cub2=Surface(1+s cos(t), s sin(t)/sqrt(2), 3-s, s, 0, 3, t, 0, 2pi)',
+  'cub3=Surface(1+sqrt(15) sin(u) cos(v), sqrt(5) sin(u) sin(v), 3+sqrt(5) cos(u), u, 0, pi, v, 0, 2pi)',
+  'V=(1,0,3)','V1=(1,0,2)','V3=(1,0,3+sqrt(5))',
+  'plano: z=2',
+  'el=Curve(1+cos(t), sin(t)/sqrt(2), 2, t, 0, 2pi)',
+  'suelo: z=0',
+  'a=2','Qa: x^2+a y^2+(4a-9) z^2-2x-6(4a-9) z-5a^2+46a-80=0',
+  'SetColor(cub1,"Blue")','SetColor(cub2,"Red")','SetColor(cub3,"Green")','SetColor(el,"Black")','SetLineThickness(el,6)',
+  'SetColor(V,"Black")','SetColor(V1,"Black")','SetColor(V3,"Black")',
+  'SetFilling(cub1,0.6)','SetFilling(cub2,0.6)','SetFilling(cub3,0.6)','SetFilling(plano,0.1)','SetFilling(suelo,0.1)'],
+  hidden:['Qa','plano','a'],
+  tools:[['a=1 · hiperboloide (2 hojas)','cub1'],['a=2 · carpa cónica','cub2'],['a=3 · cúpula elipsoidal','cub3'],['Plano z=2','plano'],['Elipse z=2','el'],['Punto más alto (a=2)','V'],['Suelo z=0','suelo'],['Q_a (deslizador a)',['Qa','a']]]}
+};
+
+/* ---------- Navegación ---------- */
+const TITLES=[['Resumen','todos los resultados'],['Problema 1','Probetas · 3 pts'],['Problema 2','Transformaciones · 3.5 pts'],['Problema 3','Estands (cuádricas) · 3.5 pts']];
+const nav=document.getElementById('nav'),apps={},loaded={};
+TITLES.forEach((t,i)=>{const b=document.createElement('button');b.innerHTML=t[0]+'<small>'+t[1]+'</small>';b.onclick=()=>show(i);nav.appendChild(b);});
+function show(i){
+  [...nav.children].forEach((b,j)=>b.classList.toggle('on',i===j));
+  document.querySelectorAll('section').forEach((s,j)=>s.classList.toggle('on',i===j));
+  try{history.replaceState(null,'','#'+i)}catch(e){}
+  window.scrollTo(0,0);
+  Object.keys(APPS).forEach(id=>{if(document.getElementById('s'+i).contains(document.getElementById(id)))load(id)});
+}
+function arr(x){return Array.isArray(x)?x:[x]}
+function load(id){
+  if(loaded[id])return;loaded[id]=true;
+  const A=APPS[id],box=document.getElementById(id),w=Math.max(320,box.clientWidth||800);
+  box.style.height=A.h+'px';
+  const params={appName:A.app,width:w,height:A.h,showToolBar:false,showAlgebraInput:false,showMenuBar:false,
+    enableRightClick:true,enableShiftDragZoom:true,showResetIcon:true,language:'es',useBrowserForJS:true,
+    appletOnLoad:function(api){
+      apps[id]=api;
+      api.setPerspective(A.app==='classic'?'G':'T');
+      A.cmds.forEach(c=>{try{api.evalCommand(c)}catch(e){console.warn(id,c,e)}});
+      (A.hidden||[]).forEach(o=>api.setVisible(o,false));
+      buildTools(id);
+    }};
+  new GGBApplet(params,true).inject(id);
+}
+function buildTools(id){
+  const A=APPS[id],bar=document.getElementById('t'+id.slice(1)),api=apps[id];
+  A.tools.forEach(t=>{
+    const objs=arr(t[1]),b=document.createElement('button');b.textContent=t[0];
+    const vis=()=>api.getVisible(objs[0]);
+    if(!vis())b.classList.add('off');
+    b.onclick=()=>{const v=!vis();objs.forEach(o=>api.setVisible(o,v));b.classList.toggle('off',!v);};
+    bar.appendChild(b);
+  });
+  const d=document.createElement('button');d.className='dl';d.textContent='⬇ Descargar .ggb';
+  d.onclick=()=>{const a=document.createElement('a');a.href='data:application/vnd.geogebra.file;base64,'+api.getBase64();a.download=A.file+'.ggb';a.click();};
+  bar.appendChild(d);
+}
+window.addEventListener('load',()=>{
+  renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});
+  show(parseInt(location.hash.slice(1))||0);
+});
+</script>
+</body>
+</html>

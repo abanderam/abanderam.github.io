@@ -25,3 +25,7 @@ Asignatura del primer cuatrimestre del primer curso del Grado en Edificación.
   - Tema 8: Resolución numérica de sistemas de ecuaciones lineales.
   - Tema 9: Resolución numérica de ecuaciones no lineales.
 
+
+**Recursos**
+
+- [Parcial 1 resuelto con GeoGebra · Grupo 3, evaluación continua 2026](/files/Libro_GeoGebra_MAEI_G3_P1_2627.html)
