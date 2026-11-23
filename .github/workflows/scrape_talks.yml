@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # ubuntu-latest (26.04) ya no incluye Python 3.9
     permissions:
       contents: write           # This workflow pushes to the repository
 
